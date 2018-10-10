@@ -60,8 +60,10 @@ def generateCalibrationFunction(calibd):
   if len(t) != len(r):
     print('!!! generateCalibrationFunction: lengths of input arrays not equal - exiting') 
     exit(1)
+  # make sure raw values are sorted 
+  z = zip(r, t); z.sort(); r,t = zip(*z)
   # perform spline fit of appropriate order k
-  return interpolate.UnivariateSpline(r, t, k = min(3, len(t)-1) )
+  return interpolate.UnivariateSpline(r, t, k = min(3, len(t)-1), s = 0 )
 
 def apply_calibs():
   global sig
