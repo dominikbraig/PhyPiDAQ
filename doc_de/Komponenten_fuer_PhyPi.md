@@ -1,4 +1,4 @@
-# Komponenten für PhyPi (Stand: 10.10.2018)
+# Komponenten für PhyPi (Stand: 11.10.2018)
 
 ## 1. Grundausstattung Raspberry Pi
 
@@ -31,7 +31,7 @@
 | 8.   | AD-Wandler ADS1115 (Adafruit)                             |                   1                   | [reichelt](https://www.reichelt.de/)                 | [DEBO AMP 16BIT](https://www.reichelt.de/entwicklerboards-verstaerker-platine-16-bit-debo-amp-16bit-p235500.html?r=1) |      15,60 |
 | 9.   | Instrumentenverstärker AD 623 ANZ                         |                   1                   | [reichelt](https://www.reichelt.de/)                 | [AD 623 ANZ](https://www.reichelt.de/instrumentenverstaerker-100-khz-dil-8-ad-623-anz-p185350.html?r=1) |       6,35 |
 | 10.  | Massestücke / Hakengewichte 100 g (10 Stück) *            |                   2                   | [Christiani](https://www.christiani-shop.de/schule/) | [86785](https://www.christiani-shop.de/schule/schulstufen/hakengewicht-100-g-blank-satz-von-10-stueck.html) |      30,90 |
-| 11.  | Schraubenfeder 10 N/m *                                   |                   1                   | [LEYBOLD]()                                          | [352 07](https://www.leybold-shop.de/catalog/product/view/id/15662/s/schraubenfeder-10-n-m-35207/category/1547/) |       4,05 |
+| 11.  | Schraubenfeder 10 N/m *                                   |                   1                   | [LD-DIDACTIC](https://www.ld-didactic.de/)           | [352 07](https://www.leybold-shop.de/catalog/product/view/id/15662/s/schraubenfeder-10-n-m-35207/category/1547/) |       4,05 |
 
 *Nur notwendig, wenn diese in der Physiksammlung nicht vorhanden sind.
 
@@ -60,7 +60,7 @@ In der folgenden Tabelle sind sämtliche Komponenten aufgeführt, die für den Z
 | 2.   | Pt100 (-40 ... +180 °C), wasserdicht                         | [reichelt](https://www.reichelt.de/)             | [BB KF PT100](https://www.reichelt.de/thermoelement-pt100-40-180-c-bb-kf-pt100-p202427.html?&trstct=pos_0) |      16,30 |
 | 3.   | analoger linearer Hallsensor SS 495 A1<br/>(min. - 60 mT ... + 67 mT) | [reichelt](https://www.reichelt.de/)             | [SS 495 A1](https://www.reichelt.de/hallsensor-linear-analog-to-92-ss-495-a1-p151340.html?&trstct=pos_1) |       3,65 |
 | 4.   | Differenzdrucksensor MPX 4250DP <br/>(0 ... 250 KPa)         | [reichelt](https://www.reichelt.de/)             | [MPX 4250DP](https://www.reichelt.de/drucksensor-0-250-kpa-19-mv-kpa-mpx-4250dp-p82337.html?&trstct=pos_0) |      18,50 |
-| 5.   | digitaler Differenzdrucksensor für sehr kleine Druckdifferenzen SDP610-500PA <br/>(kalibriert und temperaturkompensiert)<br/> z.B. für Strömungsexperimente | [CONRAD](https://www.conrad.de)                  | [1313589 - 62](https://www.conrad.de/de/sensirion-drucksensor-1-st-sdp610-500pa-500-pa-bis-500-pa-l-x-b-x-h-29-x-18-x-2705-mm-1313589.html) |      34,99 |
+| 5.   | digitaler Differenzdrucksensor für sehr kleine Druckdifferenzen SDP610-500PA (kalibriert und temperaturkompensiert) z.B. für Strömungsexperimente | [CONRAD](https://www.conrad.de)                  | [1313589 - 62](https://www.conrad.de/de/sensirion-drucksensor-1-st-sdp610-500pa-500-pa-bis-500-pa-l-x-b-x-h-29-x-18-x-2705-mm-1313589.html) |      34,99 |
 | 6.   | Luftdrucksensor BMP280, z.B. für Höhenbestimmung mit barometrischer Höhenformel (Sensor ist im I-Phone 6 verbaut) | [Eckstein](https://eckstein-shop.de/)            | [AF2651](https://eckstein-shop.de/Adafruit-BMP280-I2C-or-SPI-Barometric-Pressure-Altitude-Sensor) |      11,84 |
 | 7.   | Alternative für sehr kleine Kräfte: Kraftsensor TAL221 (Wägezelle, Biegebalken 100 g) | [Eckstein](https://eckstein-shop.de/)            | [SF14727](https://eckstein-shop.de/SparkFun-Mini-Load-Cell-100g-Straight-Bar-TAL221) |      10,65 |
 | 8.   | Kraftsensor TAL220B (Wägezelle, Biegebalken  5 kg)           | [Eckstein](https://eckstein-shop.de/)            | [SF14729](https://eckstein-shop.de/SparkFun-Load-Cell-5kg-Straight-Bar-TAL220B) |      13,03 |
@@ -70,6 +70,10 @@ In der folgenden Tabelle sind sämtliche Komponenten aufgeführt, die für den Z
 | 12.  | optischer analoger Distanzsensor SHARP GP2Y0A02YK0F, 20 - 150 cm (aufgrund der stark nicht linearen Kennlinie in der Realität ca. 20 - 80 cm) | [reichelt](https://www.reichelt.de/)             | [GP2-0215K](https://www.reichelt.de/distanzsensor-20-150-cm-analog-gp2-0215k-p193038.html?&trstct=pos_1) |       8,99 |
 | 13.  | optischer analoger Distanzsensor SHARP GP2Y0A710K0F, 100 - 550 cm (aufgrund der stark nicht linearen Kennlinie in der Realität ca. 100 - 300 cm) | [reichelt](https://www.reichelt.de/)             | [GP2-1055K](https://www.reichelt.de/distanzsensor-100-550-cm-analog-gp2-1055k-p114321.html?&trstct=pos_2) |      21,30 |
 
+|      | Komponente                                      | mögliche Bezugsquelle                 | Link / Art.Nr.:                                              | Preis in € |
+| ---- | ----------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ | ---------- |
+| 14.  | digitaler 1-Wire Temperatursensor DS18B20       | [Eckstein](https://eckstein-shop.de/) | [SE08012##1](https://eckstein-shop.de/1m-DS18B20-Digital-Wasserdicht-Temperatur-Sensor-Modul-LS4G-SE08012-1-Stueck) | 2,95       |
+| 15.  | Thermoelement Typ K, -200 bis  +1100 °C, Ø 1 mm | [reichelt](https://www.reichelt.de/)  | [BB MS NL150 1,0](https://www.reichelt.de/thermoelement-typ-k-200-1100-c-bb-ms-nl150-1-0-p202444.html?&trstct=pos_11) | 14,70      |
 
 ## 4. Pico-Scope (Oszilloskop)
 
@@ -82,8 +86,9 @@ In der folgenden Tabelle sind sämtliche Komponenten aufgeführt, die für den Z
 |      | Komponente                                | mögliche Bezugsquelle                 | Link / Art.Nr.:                                              | Preis in € |
 | ---- | ----------------------------------------- | ------------------------------------- | ------------------------------------------------------------ | ---------: |
 | 1.   | PT100 Widerstand-Digital-Wandler MAX31865 | [Eckstein](https://eckstein-shop.de/) | [AF3328](https://eckstein-shop.de/Adafruit-PT100-RTD-Temperature-Sensor-Amplifier-MAX31865) |      17,79 |
-| 2.   | AD-Wandler MCP3208                        | [reichelt](https://www.reichelt.de/)  | [MCP 3208-CI/P](https://www.reichelt.de/12-bit-a-d-converter-mit-spi-8-kanal-dil-16-mcp-3208-ci-p-p90079.html?PROVID=2788&gclid=EAIaIQobChMIpNStlO-j3QIVw4jVCh2DJQgTEAYYASABEgIGdPD_BwE&&r=1) |       1,99 |
-| 3.   | Wägezellen-Messverstärker HX711           | [Eckstein](https://eckstein-shop.de/) | [SF13879](https://eckstein-shop.de/SparkFun-Load-Cell-Amplifier-HX711-for-Weight-Measurements) |       9,95 |
+| 2.   | Thermoelement-Digital-Wandler MAX31855    | [reichelt](https://www.reichelt.de/)  | [DEBO AMP THERMO](https://www.reichelt.de/entwicklerboards-thermoelement-verstaerker-debo-amp-thermo-p235483.html?&trstct=pos_0) |      15,60 |
+| 3.   | AD-Wandler MCP3208                        | [reichelt](https://www.reichelt.de/)  | [MCP 3208-CI/P](https://www.reichelt.de/12-bit-a-d-converter-mit-spi-8-kanal-dil-16-mcp-3208-ci-p-p90079.html?PROVID=2788&gclid=EAIaIQobChMIpNStlO-j3QIVw4jVCh2DJQgTEAYYASABEgIGdPD_BwE&&r=1) |       1,99 |
+| 4.   | Wägezellen-Messverstärker HX711           | [Eckstein](https://eckstein-shop.de/) | [SF13879](https://eckstein-shop.de/SparkFun-Load-Cell-Amplifier-HX711-for-Weight-Measurements) |       9,95 |
 
 ## 6. Komponenten für Projekte
 
