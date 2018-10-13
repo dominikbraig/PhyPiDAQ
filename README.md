@@ -279,8 +279,7 @@ right-clicking the icon and use the dialog "Properties".
 - `phypidaq/GPIOCount.py`   
     class for reading rates from GPIO pins
 
-- `phypidaq/MAX31855Config.py`
-
+- `phypidaq/MAX31855Config.py`  
     class for handling MAX31855 thermocouple-to-digital converter
 
 - `phypidaq/MAX31865Config.py`  
@@ -293,8 +292,7 @@ right-clicking the icon and use the dialog "Properties".
     background-process handling data visualisation
 
 - `phypidaq/DataLogger.py`  
-
-- class for display of data histories and xy diagrams
+    class for display of data histories and xy diagrams
 
 - `phypidaq/DataGraphs.py`  
     general display module for data as bar graphs, history plots and xy-graphs

@@ -170,22 +170,16 @@ Dieses Paket basiert auf Code aus anderen Paketen, die die Treiber für die unte
 
 - die Adafruit Python MCP3008 Bibliothek  
     <https://github.com/adafruit/Adafruit_Python_MCP3008>
-
 - die Adafruit Python ADX1x15 Bibliothek  
     <https://github.com/adafruit/Adafruit_Python_ADS1x15>
-
 - die Adafruit Python MAX31855 Bibliothek  
     <https://github.com/adafruit/Adafruit_Python_MAX31855>
-
 - die w1thermsensor Bibliothek von Timo Furrer  
     <https://github.com/timofurrer/w1thermsensor>
-
 - Komponenten des picoDAQ-Projekts  
     <https://github.com/GuenterQuast/picoDAQ>
-
-- das  *python* Interface für die PicoScope Treiber des *pico-python*-Projekts   
-    von Colin O'Flynn, <https://github.com/colinoflynn/pico-python>
-
+- das  *python* Interface für die PicoScope Treiber des *pico-python*-Projekts  von Colin O'Flynn  
+    <https://github.com/colinoflynn/pico-python>
 - die C-Treiber aus dem Pico Technology Software Development Kit  
     <https://www.picotech.com/downloads>
 
@@ -283,8 +277,7 @@ Die Pfade in *~/Desktop/phipi.desktop* müssen dann ebenfalls entsprechend angep
 - `phypidaq/GPIOCount.py`   
     Klasse zur Ratenmessung an GPIO-Pins
 
-- `phypidaq/MAX31855Config.py`
-
+- `phypidaq/MAX31855Config.py`  
     Klasse zur Handhabung des Thermolement-nach-digital-Wandlers MAX31855
 
 - `phypidaq/MAX31865Config.py`  
@@ -297,8 +290,7 @@ Die Pfade in *~/Desktop/phipi.desktop* müssen dann ebenfalls entsprechend angep
     Hintergrund-Prozess zur Datenvisualisierung
 
 - `phypidaq/DataLogger.py`  
-
-- Klasse zur Anzeige von Datenverlauf und xy-Diagrammen
+    Klasse zur Anzeige von Datenverlauf und xy-Diagrammen
 
 - `phypidaq/DataGraphs.py`  
     allgemeine Klasse zur Anzeige von Balkendiagrammen, Datenverläufen und xy-Diagrammen
