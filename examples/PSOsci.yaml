@@ -1,20 +1,23 @@
 # PicoScope configuration with free-running trigger
 
+PSmodel: '2000'
+#PSmodel: '2000a'
+
 picoChannels:     [A, B]
-ChanModes:        [AC, AC, AC]
-ChanRanges:       [0.5, 0.5, 0.5]
-ChanColors:       [darkblue, sienna, indigo]
+ChanModes:        [DC, DC]
+ChanRanges:       [0.2, 0.2]
+ChanColors:       [darkblue, sienna]
 
 Nsamples: 400  
-sampleTime: 0.1E-3 
+sampleTime: 100.E-3 
 
 trgChan: A    
 trgThr: 0.05       
-trgTyp: Above   
+#trgTyp: Above # not available on model PS2204A
 trgTO: 500       
 trgActive: true
-trgDelay:  0
-pretrig: 0.05 
+#trgDelay:  0
+#pretrig: 0. 
 
 #frqSG: 10.E+3
 frqSG: 0.0    # signal generator off
