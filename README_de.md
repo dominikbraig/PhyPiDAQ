@@ -91,8 +91,6 @@ DataFile:   null              #   null falls keine Ausgebe gewuenscht
 
 ```
 
-
-
 ### Gerätekonfigurationen 
 
 Die Gerätekonfiguration für den sehr flexibel einsetzbaren Analog-Digital-Wandler **ADS1115** mit 16 Bit Auflösung und Ausleseraten bis zu 860 Hz gibt die aktiven Kanäle und deren Wertebereiche an.
@@ -198,18 +196,11 @@ sudo apt-get upgrade
 sudo apt-get install python3-scipy
 sudo apt-get install python3-matplotlib
 sudo apt-get install python3-pyqt5
-sudo apt-get install libatlas-base-dev # needed by latest verion of numpy
+sudo apt-get install libatlas-base-dev # wird benoetigt für neueste Version von numpy
 
 sudo pip3 install pyyaml
 
-# PicoTech base drivers for picoScope USB devices
-#   see https://www.picotech.com/support/topic14649.html
-# after inclusion of the picotech raspbian repository:  
-sudo apt-get install libps2000a
-# allow access of user pi to usb port
-sudo usermod -a -G tty pi
-
-# get PhyPiDAQ code and dependencies
+# Beziehen des PhyPiDAQ Codes und aller Software-Abhaengigkeiten
 mkdir git
 cd git
 git clone https://github.com/GuenterQuast/PhyPiDAQ
@@ -217,21 +208,35 @@ cd PhyPiDAQ/whl
 sudo pip3 install *.whl
 ```
 
+Um die PicoTech-Treiber für PicoScope USB-Geräte zu installieren, muss das picotech-raspbian-Repository hinzugefügt werden:
+
+1. Öffnen Sie die  Datei /etc/apt/sources.list über die Kommandozeile mit `sudo nano /etc/apt/sources.list`.   ![open_etc_apt_sources_list](./images/open_etc_apt_sources_list.png)
+2. Ergänzen Sie den Eintrag `deb http://labs.picotech.com/raspbian/ picoscope main` in der Datei  /etc/apt/sources.list.   ![](./images/add_entry_picotech.png)
+3. Speichern Sie die Datei /etc/apt/sources.list by `Strg + O` und `Enter`.
+4. Schließen Sie die Datei /etc/apt/sources.list mit `Strg + X`.
+
+<div style="page-break-after: always;"></div>
+
+Nachdem Sie das PicoTech-Repository hinzugefügt haben, sollten die folgenden Schritte auf der Kommandozeile durchgeführt werden.
+
+```bash
+sudo apt-get update
+wget -O - http://labs.picotech.com/debian/dists/picoscope/Release.gpg.key | sudo apt-key add -
+sudo apt-get install libps2000
+sudo apt-get install libps2000a
+```
+
+**Starten Sie Ihren Raspberry Pi nach der Installation neu!**
+
 ### Didaktische Anmerkungen
 
-Schüler oder Studierende zu Beginn mit dem vollen Umfang des Pakets *PhyPiDAQ* zu konfrontieren, ist aus didaktischer Sicht wenig angebracht. Stattdessen wird empfohlen, ein Arbeitsverzeichnis zu erstellen und
-benötigte Beispiele von dort in ein eigenes Arbeitsverzeichnis zu kopieren. Dies wird durch folgende Befehle erreicht:
+Schüler oder Studierende zu Beginn mit dem vollen Umfang des Pakets *PhyPiDAQ* zu konfrontieren, ist aus didaktischer Sicht wenig angebracht. Stattdessen wird empfohlen, ein Arbeitsverzeichnis zu erstellen und benötigte Beispiele von dort in ein eigenes Arbeitsverzeichnis zu kopieren. Dies wird durch folgende Befehle erreicht:
 
 
 ```bash
-cd ~
-# Arbeitsverzeichnis erzeugen, z.B. PhyPiDAQ ...
-mkdir PhyPiDAQ
-cd PhyPiDAQ
-
-# ... und Beispiele und Konfigurationsdateien kopieren 
-cp -a ~/git/PhyPiDAQ/examples .
-cp -a ~/git/PhyPiDAQ/config .
+# Erzeugen eines Arbeitsverzeichnissen PhyPi und Kopieren von Beispielen und Konfigurationsdateien in das neu erzeugte Verzeichnis.
+cd ~/git/PhyPiDAQ
+./install_user.sh
 
 # klickbares Symbol auf dem Desktop zum Zugang zu phypi
 cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop
@@ -246,8 +251,6 @@ sudo mv ~/git/PhyPiDAQ /usr/local/
 
 Die Pfade in *~/Desktop/phipi.desktop* müssen dann ebenfalls entsprechend angepasst werden. Dies wird am einfachsten durch Klicken mit der rechten Maustaste auf das *phipi*-Symbol erreicht. Im sich dann öffnenden Menu den Dialog "Eigenschaften" wählen und alle Pfade von  *~/git/*  ->  */usr/local/* ändern.
 
-<div style="page-break-after: always;"></div>
-
 ## Übersicht über Dateien im Paket PhyPiDAQ 
 
 ### Programme 
@@ -256,6 +259,8 @@ Die Pfade in *~/Desktop/phipi.desktop* müssen dann ebenfalls entsprechend angep
     Datennahme und Anzeige wie in Konfigurationsdateien angegeben (Vorgabe `PhyPiConf.daq` und *.yaml*-Dateien im Verzeichnis *config/*)
 - `phypi.py`  
     graphische Oberfläche zum Editieren der Konfiguration und Starten des Skripts `run_phypi.py`
+
+<div style="page-break-after: always;"></div>
 
 ### Module
 
@@ -298,8 +303,6 @@ Die Pfade in *~/Desktop/phipi.desktop* müssen dann ebenfalls entsprechend angep
 - `phypidaq/DataRecorder.py`  
     Speichern von Daten im CSV-Format
 
-<div style="page-break-after: always;"></div>
-
 ### Konfigurationsdateien
 
 - `PhyPiConf.daq`  
@@ -311,6 +314,8 @@ Die Pfade in *~/Desktop/phipi.desktop* müssen dann ebenfalls entsprechend angep
 - `config/MAX31865Config.yaml`
 - `config/MCP3008Config.yaml`
 - `config/PSConfig.yaml`
+
+<div style="page-break-after: always;"></div>
 
 ### Beispiele
 
