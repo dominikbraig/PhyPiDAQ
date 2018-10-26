@@ -211,8 +211,8 @@ sudo pip3 install *.whl
 Um die PicoTech-Treiber für PicoScope USB-Geräte zu installieren, muss das picotech-raspbian-Repository hinzugefügt werden:
 
 1. Öffnen Sie die  Datei /etc/apt/sources.list über die Kommandozeile mit `sudo nano /etc/apt/sources.list`.   ![open_etc_apt_sources_list](./images/open_etc_apt_sources_list.png)
-2. Ergänzen Sie den Eintrag `deb http://labs.picotech.com/raspbian/ picoscope main` in der Datei  /etc/apt/sources.list.   ![](./images/add_entry_picotech.png)
-3. Speichern Sie die Datei /etc/apt/sources.list by `Strg + O` und `Enter`.
+2. Navigieren Sie mit den Pfeiltasten in die nächste frei Zeile und ergänzen Sie den Eintrag `deb http://labs.picotech.com/raspbian/ picoscope main` in der Datei  /etc/apt/sources.list.   ![](./images/add_entry_picotech.png)
+3. Speichern Sie die Datei /etc/apt/sources.list mit `Strg + O` und `Enter`.
 4. Schließen Sie die Datei /etc/apt/sources.list mit `Strg + X`.
 
 <div style="page-break-after: always;"></div>
@@ -224,6 +224,9 @@ sudo apt-get update
 wget -O - http://labs.picotech.com/debian/dists/picoscope/Release.gpg.key | sudo apt-key add -
 sudo apt-get install libps2000
 sudo apt-get install libps2000a
+
+# Benutzer pi Zugriff auf den USB-Port ermoeglichen
+sudo usermod -a -G tty pi
 ```
 
 **Starten Sie Ihren Raspberry Pi nach der Installation neu!**
@@ -243,7 +246,7 @@ cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop
 ```
 
 Um versehentliches Überschreiben von Dateien im Paket *PhyPiDAQ* zu vermeiden, sollte eine Verschiebung in den Systembereich in Erwägung gezogen werden, z. B. nach 
-`/usr/loca/`:
+/usr/local/:
 
 ```bash
 sudo mv ~/git/PhyPiDAQ /usr/local/

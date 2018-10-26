@@ -218,7 +218,7 @@ sudo pip3 install *.whl
 To install the PicoTech base drivers for PicoScope USB devices the picotech raspbian repository has to be included:
 
 1. Open file /etc/apt/sources.list by `sudo nano /etc/apt/sources.list`.   ![open_etc_apt_sources_list](./images/open_etc_apt_sources_list.png)
-2. Add entry `deb http://labs.picotech.com/raspbian/ picoscope main` to  /etc/apt/sources.list.   ![](./images/add_entry_picotech.png)
+2. Use arrow keys to navigate to the next free line and add entry `deb http://labs.picotech.com/raspbian/ picoscope main` to  /etc/apt/sources.list.   ![](./images/add_entry_picotech.png)
 3. Save file /etc/apt/sources.list by `Ctrl + O` and `Enter`.
 4. Close /etc/apt/sources.list by `Ctrl + X`.
 
@@ -231,6 +231,9 @@ sudo apt-get update
 wget -O - http://labs.picotech.com/debian/dists/picoscope/Release.gpg.key | sudo apt-key add -
 sudo apt-get install libps2000
 sudo apt-get install libps2000a
+
+# allow access of user pi to usb port
+sudo usermod -a -G tty pi
 ```
 
 **Reboot your Raspberry Pi after the installation!**
@@ -248,7 +251,7 @@ cd ~/git/PhyPiDAQ
 cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop
 ```
 
- You might also consider moving the *PhyPiDAQ* package to system space, e.g. `/usr/local`:
+ You might also consider moving the *PhyPiDAQ* package to system space, e.g. /usr/local:
 
 ```bash
 sudo mv ~/git/PhyPiDAQ /usr/local/
