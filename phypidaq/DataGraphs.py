@@ -185,7 +185,7 @@ class DataGraphs(object):
   # Voltage in Text form
     self.animtxt = self.axtxt.text(0.01, 0.025 , ' ',
               transform=self.axtxt.transAxes,
-              size='large', color='darkblue')
+              color='darkblue')
   
     self.XYgraphs = ()
     if self.XYmode:
@@ -220,7 +220,7 @@ class DataGraphs(object):
     # update text display
           endl = ''
           if i%2: endl = '\n'
-          txt += '  %s:   %.3g (%s)'% (self.ChanNams[i], self.Vhist[i,k], self.ChanUnits[i]) + endl 
+          txt += '  %s:   %.3g %s'% (self.ChanNams[i], self.Vhist[i,k], self.ChanUnits[i]) + endl 
     # update bar chart
           self.bgraphs[i].set_height(dat[i])
           self.animtxt.set_text(txt)
