@@ -45,11 +45,16 @@ Den Vierkantstab (12 x 12 mm) entsprechend der nachfolgenden Zeichnung ablängen
 
 1. Schrauben Sie die Wägezelle mit Linsenkopfschrauben M3 x 16 am Sensorhalter fest.
 
-   ![](images/building_instructions/mounting_force_sensor.png)
-
 2. Befestigen Sie das Anschlusskabel mit zwei Kabelbindern am Sensorhalter. Die zwei Kabelbinder dienen als Zugentlastung für die Anschlussleitungen der Wägezelle.
 
-   ![](images/building_instructions/strain_relief.png)
+![](images/building_instructions/strain_relief.png)
 
-3. Bringen Sie nun noch die Drahtseilklemme als Aufhängepunkt an der Wägezelle an. Dazu biegen Sie die Enden mit einer Zange leicht zusammen, stecken diese durch die Bohrungen und verschrauben die Drahtseilklemme mit den zugehörigen Muttern.
+3. Biegen Sie mit einer Spitzzange aus dem Kupferdraht der 6 mm&sup2; Leitung eine Aufhängeöse und kleben Sie diese anschließend mit Zweikomponentenklebstoff in die Wägezelle ein.
 
+![](images/building_instructions/glue.png)
+
+![](images/building_instructions/glue_completed.png)
+
+4. Nachfolgend ist der fertig montierte Kraftsensor dargstellt.
+
+![](images/building_instructions/completed_force_sensor.png)
