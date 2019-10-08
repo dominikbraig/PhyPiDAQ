@@ -60,7 +60,7 @@ class pulseGPIO(object):
     if ton==None: ton = 0.05
     if self.Q.empty(): self.Q.put(ton)
     
-  def closeDevice(self):
+  def close(self):
     for p in self.subprocs:
       if p.is_alive():
         p.terminate()

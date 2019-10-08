@@ -24,7 +24,6 @@ from .Display import *
 
 from .DataRecorder import DataRecorder
 from .helpers import RingBuffer, DAQwait
-from .pulseGPIO import *
 
 # ----- helper functions --------------------
 
@@ -348,6 +347,8 @@ class runPhyPiDAQ(object):
       self.fifo = None
 
   # LED indicators on GPIO pins
+    if 'RunLED' in PhyPiConfDict or 'ReadoutLED' in PhyPiConfDict:      
+      from .pulseGPIO import pulseGPIO
     if 'RunLED' in PhyPiConfDict:      
       self.RunLED = pulseGPIO(PhyPiConfDict['RunLED'])
     else:
@@ -356,7 +357,7 @@ class runPhyPiDAQ(object):
       self.ReadoutLED = pulseGPIO(PhyPiConfDict['ReadoutLED'])
     else:
       self.ReadoutLED = None
-
+      
  # print configuration
     if self.verbose > 1:
       print ('\nPhyPiDAQ Configuration:')
@@ -446,13 +447,14 @@ class runPhyPiDAQ(object):
   # start keyboard control
     kbdthrd=threading.Thread(name='kbdInput', target = self.kbdInput,
                              args = (cmdQ,)  )
-#                                                                      Queue       
+#                                    Queue       
     kbdthrd.daemon = True
     kbdthrd.start()  
 
     # set up space for data
     self.data = np.zeros(NChannels)
 
+    tflash = min(0.2, interval/2.) # pulse duration for readout LED
     if self.RunLED: self.RunLED.pulse(0) # switch on status LED
   # -- LOOP 
     try:
@@ -480,7 +482,7 @@ class runPhyPiDAQ(object):
           for i, DEV in enumerate(self.DEVs):
             DEV.acquireData(self.data[self.ChanIdx_ofDevice[i] : ] )
 
-          if self.ReadoutLED: self.ReadoutLED.pulse(interval/2.) # pulse readout LED
+          if self.ReadoutLED: self.ReadoutLED.pulse(tflash) # pulse readout LED
 
         # eventually calibrate raw readings
           if self.CalibFuncts: self.apply_calibs()
