@@ -415,30 +415,32 @@ sudo usermod -a -G tty pi
 - `phypidaq/ReplayConfig`  
     class to replay data from file
 
-- `phypidaq/Display.py`  
+- `phypidaq/Display`  
     interface and background-process handling data visualisation
 
-- `phypidaq/DataLogger.py`  
+- `phypidaq/DataLogge`  
     class for display of data histories and xy diagrams
 
-- `phypidaq/DataGraphs.py`  
+- `phypidaq/DataGraph`  
     general display module for data as bar graphs, history plots and xy-graphs
 
-- `phypidaq/DataRecorder.py`  
+- `phypidaq/DataRecorde`  
     store data in CSV format
 
-- `runPhyPiDAQ.py`  
-    class containing the implementation of script `run_phypi.py`
+- `phypidaq/pulseGPIO`
+    class to set or pulse GPIO pin of raspberry py
 
-- `runPhyPiUI.py`
-    class implementing the graphical user interface `phypi.py`, uses
-    `phypiUI` as base class
+- `phypidaq/runPhyPiDAQ`  
+    class for script `run_phypi.py`
 
-- `phypyUI`
+- `phypidaq/runPhyPiUI.py`
+    class for graphical user interface `phypi.py`, uses `phypiUI` as base class
+
+- `phypidaq/phypyUI`
 
     base class for `runPhyPyUI`, generated from `phypi.ui` with `pyuic5`
 
-- `phypi.ui`
+- `phypidaq/phypi.ui`
     output of `designer-qt5` , describes the graphical user interface
 
 
