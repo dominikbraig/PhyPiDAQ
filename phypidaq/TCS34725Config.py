@@ -21,7 +21,11 @@ class TCS34725Config(object):
       self.NChannels = 3
 
     if 'Gain' in confdict:
-      self.gain = confdict['Gain']      
+      gains = (TCS34725.TCS34725_GAIN_1X,
+               TCS34725.TCS34725_GAIN_4X,
+               TCS34725.TCS34725_GAIN_16X,
+               TCS34725.TCS34725_GAIN_60X)
+      self.gain = gains(confdict['Gain'])      
     else:
       self.gain = TCS34725.TCS34725_GAIN_60X
         # Possible gain values:
@@ -31,18 +35,26 @@ class TCS34725Config(object):
         #  - TCS34725_GAIN_60X
 
     if 'IntegrationTime' in confdict:
-      self.IntT = confdict['IntegrationTime']      
+      IntTs = (TCS34725.TCS34725_INTEGRATIONTIME_2_4MS, 
+               TCS34725.TCS34725_INTEGRATIONTIME_24MS,
+               TCS34725.TCS34725_INTEGRATIONTIME_50MS,
+               TCS34725.TCS34725_INTEGRATIONTIME_101MS,
+               TCS34725.TCS34725_INTEGRATIONTIME_154MS,
+               TCS34725.TCS34725_INTEGRATIONTIME_700MS)
+      maxVals = (1024, 10240, 20480, 43008, 65535, 65535)
+      self.IntT = IntTs(confdict['IntegrationTime'])      
+      self.maxCount = maxVals(confdict['IntegrationTime'])      
     else:
       self.IntT = TCS34725.TCS34725_INTEGRATIONTIME_2_4MS
-#      self.IntT = TCS34725.TCS34725_INTEGRATIONTIME_24MS
+      self.maxCount = 1024. # 10 bit
         # Possible integration time values:
-        #  - TCS34725_INTEGRATIONTIME_2_4MS  (default)
-        #  - TCS34725_INTEGRATIONTIME_24MS
-        #  - TCS34725_INTEGRATIONTIME_50MS
-        #  - TCS34725_INTEGRATIONTIME_101MS
-        #  - TCS34725_INTEGRATIONTIME_154MS
-        #  - TCS34725_INTEGRATIONTIME_700MS
-
+        # - TCS34725_INTEGRATIONTIME_2_4MS  = 2.4ms - 1 cycle    - Max Count: 1024 (default)
+        # - TCS34725_INTEGRATIONTIME_24MS   = 24ms  - 10 cycles  - Max Count: 10240
+        # - TCS34725_INTEGRATIONTIME_50MS   = 50ms  - 20 cycles  - Max Count: 20480
+        # - TCS34725_INTEGRATIONTIME_101MS  = 101ms - 42 cycles  - Max Count: 43008
+        # - TCS34725_INTEGRATIONTIME_154MS  = 154ms - 64 cycles  - Max Count: 65535
+        # - TCS34725_INTEGRATIONTIME_700MS  = 700ms - 256 cycles - Max Count: 65535
+ 
     if 'I2CADDR' in confdict:
       self.I2CAddr = confdict['I2CADDR']
       print("TCS34725: I2C address set to %x "%(self.I2CAddr) )
@@ -55,8 +67,6 @@ class TCS34725Config(object):
     else: 
       self.busnum=1 # use default
     
-    self.maxVal = 1024. # 10 bit
-
  # provide configuration parameters
     self.ChanNams = ['R', 'G', 'B', 'c']
     self.ChanLims = [[0., 1.]] * self.NChannels
@@ -81,13 +91,13 @@ class TCS34725Config(object):
     # Read the R, G, B, C color data.
     r, g, b, c = self.tcs.get_raw_data()
     if self.NChannels == 1:
-      buf[0] = c / self.maxVal
+      buf[0] = c / self.maxCount
     else:
-      buf[0] = r / self.maxVal
-      buf[1] = g / self.maxVal
-      buf[2] = b / self.maxVal
+      buf[0] = r / self.maxCount
+      buf[1] = g / self.maxCount
+      buf[2] = b / self.maxCount
       if self.NChannels > 3:
-        buf[3] = c / self.maxVal
+        buf[3] = c / self.maxCount
 
     ## there are some additional functions in Adafruit driver:
     #   calculate color temperature 
