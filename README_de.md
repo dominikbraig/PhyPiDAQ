@@ -670,27 +670,29 @@ aus dem Stromnetz aufgefangen werden. Höhere Störfrequenzen findet man in der 
     Klasse für sechs-Kanal Farbsensor AS7262  
 - `phypidaq/AS7265xConfig`    
     Klasse für 18-Kanal Spektralsensor AS7265x  
-- `phypidaq/GDK101Config.py`  
+- `phypidaq/GDK101Config`  
     Klasse für Gamma-Detektor GDK101 von FTLAB
-- `phypidaq/ToyDataConfig.py`  
+- `phypidaq/ToyDataConfig`  
     Klasse zur Erzeugung simulierter Daten (für Test, Fehlersuche oder Übungsaufgaben)
 - `phypidaq/ReplayConfig`  
     Klasse zur Wiedergabe von Daten aus Datei
-- `phypidaq/Display.py`  
+- `phypidaq/Display`  
     Interface und Hintergrund-Prozess zur Datenvisualisierung
-- `phypidaq/DataLogger.py`  
+- `phypidaq/DataLogger`  
     Klasse zur Anzeige von Datenverlauf und xy-Diagrammen
-- `phypidaq/DataGraphs.py`  
+- `phypidaq/DataGraphs`  
     allgemeine Klasse zur Anzeige von Balkendiagrammen, Datenverläufen und xy-Diagrammen
-- `phypidaq/DataRecorder.py`  
+- `phypidaq/DataRecorde`  
     Speichern von Daten im CSV-Format
-- `runPhyPiDAQ.py`  
+- `phypidaq/pulseGPIO`
+    Setzen oder Pulsen eines GPIO-Pins des Raspberry Pi
+- `phypidaq/runPhyPiDAQ  
     Klasse für das Script  `run_phypi.py`
-- `runPhyPyUI.py`  
+- `phypidaq/runPhyPyU`  
     Klasse für die grafische Oberfläche `phypi.py`, abgeleitet von `phypiUI`
-- `phypiUI`  
+- `phypidaq/phypiUI`  
     mit `pyuic5` aus `phypi.ui` erzeugte Basis-Klasse für grafische Oberfläche
-- `phypi.ui`  
+- `phypidaq/phypi.ui`  
     Ausgabe von `designer-qt5` , beschreibt die grafischen Oberfläche
 
 

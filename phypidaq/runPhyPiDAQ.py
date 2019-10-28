@@ -330,7 +330,7 @@ class runPhyPiDAQ(object):
     else:
       self.RBuf = None
 
-  # buffer latest data (number of data points given by NHistoryPoints)
+  # configure a fifo for data output
     if 'DAQfifo' in PhyPiConfDict:
       self.DAQfifo = PhyPiConfDict['DAQfifo']      
     else:
@@ -346,17 +346,24 @@ class runPhyPiDAQ(object):
     else:
       self.fifo = None
 
-      # set-up a ring buffer 
-    if self.bufferFile != None:    
-      self.RBuf = RingBuffer(PhyPiConfDict['NHistoryPoints'])
+  # LED indicators on GPIO pins
+    if 'RunLED' in PhyPiConfDict or 'ReadoutLED' in PhyPiConfDict:      
+      from .pulseGPIO import pulseGPIO
+    if 'RunLED' in PhyPiConfDict:      
+      self.RunLED = pulseGPIO(PhyPiConfDict['RunLED'])
     else:
-      self.RBuf = None
+      self.RunLED = None
+    if 'ReadoutLED' in PhyPiConfDict:      
+      self.ReadoutLED = pulseGPIO(PhyPiConfDict['ReadoutLED'])
+    else:
+      self.ReadoutLED = None
       
+ # print configuration
     if self.verbose > 1:
       print ('\nPhyPiDAQ Configuration:')
       print (yaml.dump(PhyPiConfDict) )
-
     self.PhyPiConfDict = PhyPiConfDict
+
 
   def apply_calibs(self):
     '''
@@ -434,19 +441,21 @@ class runPhyPiDAQ(object):
       self.DAQ_ACTIVE = True # Data Acquisition active
     else:
   # start in paused-mode
-      self.DAQ_ACTIVE = False # Data Acquisition inactive  # start threads
+      self.DAQ_ACTIVE = False # Data Acquisition inactive
       print('  starting in Paused mode - type R to resume')
 
   # start keyboard control
     kbdthrd=threading.Thread(name='kbdInput', target = self.kbdInput,
                              args = (cmdQ,)  )
-#                                                                      Queue       
+#                                    Queue       
     kbdthrd.daemon = True
     kbdthrd.start()  
 
     # set up space for data
     self.data = np.zeros(NChannels)
 
+    tflash = min(0.2, interval/2.) # pulse duration for readout LED
+    if self.RunLED: self.RunLED.pulse(0) # switch on status LED
   # -- LOOP 
     try:
       cnt = 0
@@ -472,6 +481,8 @@ class runPhyPiDAQ(object):
         # read data
           for i, DEV in enumerate(self.DEVs):
             DEV.acquireData(self.data[self.ChanIdx_ofDevice[i] : ] )
+
+          if self.ReadoutLED: self.ReadoutLED.pulse(tflash) # pulse readout LED
 
         # eventually calibrate raw readings
           if self.CalibFuncts: self.apply_calibs()
@@ -519,10 +530,13 @@ class runPhyPiDAQ(object):
 
     finally:
       self.ACTIVE = False
+      if self.RunLED != None: self.RunLED.pulse(-1) # RunLED off 
       if self.DatRec: self.DatRec.close()
       for DEV in self.DEVs:
         DEV.closeDevice() # close down hardware device
       if DisplayModule != None: display.close()
+      if self.RunLED != None: self.RunLED.close() 
+      if self.ReadoutLED != None: self.ReadoutLED.close() 
       time.sleep(1.)
      
       if self.verbose:
