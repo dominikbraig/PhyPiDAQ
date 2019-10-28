@@ -47,7 +47,7 @@ class TCS34725Config(object):
       self.I2CAddr = confdict['I2CADDR']
       print("TCS34725: I2C address set to %x "%(self.I2CAddr) )
     else: 
-      self.I2CAdddr = 0x29 # use default
+      self.I2CAddr = 0x29 # use default
      
     if 'busnum' in confdict:
       self.busnum = confdict['busnum']
@@ -80,11 +80,14 @@ class TCS34725Config(object):
 
     # Read the R, G, B, C color data.
     r, g, b, c = self.tcs.get_raw_data()
-    buf[0] = r / self.maxVal
-    buf[1] = g / self.maxVal
-    buf[2] = b / self.maxVal
-    if self.NChannels > 3:
-      buf[3] = c / self.maxVal
+    if self.NChannels == 1:
+      buf[0] = c / self.maxVal
+    else:
+      buf[0] = r / self.maxVal
+      buf[1] = g / self.maxVal
+      buf[2] = b / self.maxVal
+      if self.NChannels > 3:
+        buf[3] = c / self.maxVal
 
     ## there are some additional functions in Adafruit driver:
     #   calculate color temperature 
