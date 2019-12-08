@@ -698,6 +698,9 @@ aus dem Stromnetz aufgefangen werden. Höhere Störfrequenzen findet man in der 
 
 ### Konfigurationsdateien
 
+- `phypidaq.cfg`  
+     allgemeine Konfigurationsdatei für Konfigurations- und anfängliches Arbeitsverzeichnis;
+     liegt diese Datei im `home`-Verzeichnis, hat sie Priorotät vor der Version im Installationsverzeichnis
 - `PhyPiConf.daq`  
      Haputkonfigurationsdatei, hängt von Dateien im Unterverzeichnis *config/* ab
 - `config/ADS1115Config.yaml` 16 Bit Analog-Digigalwandler

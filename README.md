@@ -446,6 +446,9 @@ sudo usermod -a -G tty pi
 
 ### Configuration files 
 
+- `phypidaq.cfg`  
+     global configuration for directory with configuration files and inital work directory;
+     if this file is found in the `home` directory, it takes priority over the one in the installation directory
 - `PhyPiConf.daq`  
      main configuration file, depends on device configurations in sub-directory *config/*
 - `config/ADS1115Config.yaml` 16 bit ADC
