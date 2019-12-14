@@ -416,15 +416,19 @@ def runPhyPiUi():
       print(2*' ', ' !!! no valid file phypidaq.cfg found - using defaults')
       cfg_dict = {}
       cfg_dict['work_directory'] = '~'
-      cfg_dict['config_directory'] = '.'
+      cfg_dict['config_directory'] = ' '
       cfg_dict['daq_file'] = 'PhyPiDemo.daq'
       
   work_directory = cfg_dict['work_directory']
   if work_directory == '~':  work_directory = homedir
+  if work_directory == '.':  work_directory = os.getcwd()
   conf_directory = cfg_dict['config_directory']
+  if conf_directory == '~':  conf_directory = homedir
+  if conf_directory == '.':  conf_directory = os.getcwd()
+  if conf_directory == ' ':  conf_directory = path_to_PhyPi
   DAQconfFile = cfg_dict['daq_file']
       
-  # check for / read command line arguments and get DAQ configuration file
+  # check for/read command line arguments and get DAQ configuration file
   if len(sys.argv) == 2:
     DAQconfFile = os.path.abspath(sys.argv[1]) # with full path to file
     conf_directory = os.path.dirname(DAQconfFile) # config dir from file name
