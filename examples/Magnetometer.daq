@@ -8,7 +8,7 @@
 #DeviceFile: GPIOCount.yaml
 #DeviceFile: BMP180Config.yaml  
 #DeviceFile: MMA845xConfig.yaml  
-DeviceFile: MMA845xConfig.yaml  
+DeviceFile: MLX90393Config.yaml  
 
 DisplayModule: DataGraphs
 Title: Magnetometer

@@ -9,7 +9,7 @@ import busio, board
 # adafruit driver class
 import adafruit_mlx90393
 
-class MLX90939Config(object):
+class MLX90393Config(object):
   '''digital magnetometer MLX90393 configuration and interface'''
 
   def __init__(self, confdict = None):
