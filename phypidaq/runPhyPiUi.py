@@ -269,12 +269,8 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
         self.pTE_DeviceConfig1.setReadOnly(not checked)
         self.pTE_DeviceConfig2.setReadOnly(not checked)
 
-    def saveConfig(self, confdir, verbose=0):
-    # save all Config files to disk
-
-      # retrieve actual configuration from GUI
-      DAQconf = self.pTE_phypiConfig.toPlainText()
-      # check if valid yaml syntax
+    def checkConfig(self, DAQconf):
+      # check validity of configuration files for valid yaml syntax
       try:
         DAQconfdict=yaml.load(DAQconf, Loader=yaml.Loader)       
       except Exception as e: 
@@ -291,20 +287,45 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
           self.MB_Warning('Warning', 
              'Device Config %i is not valid yaml format \n'%(i) + str(e) )
           return 1
+      return 0
+   
+    def saveConfigs(self, confdir, verbose=0):
+    # save all Config files to confdir
 
-      # DAQ configuration file in confdir
+      # retrieve actual configuration from GUI
+      DAQconf = self.pTE_phypiConfig.toPlainText()
+      # check validity of configuration files for valid yaml syntax
+      try:
+        DAQconfdict=yaml.load(DAQconf, Loader=yaml.Loader)       
+      except Exception as e: 
+        self.MB_Warning('Warning', 
+          'PhyPi Config is not valid yaml format \n' + str(e))       
+        return 1
+
+      DevConfs = []   
+      for i in range(self.NDeviceConfigs):
+        DevConfs.append(self.pTE_DeviceConfigs[i].toPlainText()) 
+        try:
+          _ =yaml.load(DevConfs[i], Loader=yaml.Loader)       
+        except Exception as e: 
+          self.MB_Warning('Warning', 
+             'Device Config %i is not valid yaml format \n'%(i) + str(e) )
+          return 1
+      
+      # name of DAQ configuration file in confdir
       RunTag = str(self.lE_RunTag.text() ).replace(' ','')
-
       DAQfile = RunTag + '.daq'
       fullDAQfile = confdir + '/' + RunTag + '.daq'
-      if self.MB_Question('Question', 
+
+      if verbose:
+        if self.MB_Question('Question', 
           'saving Config to file ' + fullDAQfile) == QMessageBox.Cancel:
-        return 1
+          return 1
      
       DevFiles = DAQconfdict["DeviceFile"] 
       if type(DevFiles) != type([]):
         DevFiles = [DevFiles]
-
+        
       # check for overwriting ...
       #   ... device config files
       for DevFile in DevFiles:
@@ -343,7 +364,22 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
       return 0
 
     def saveDefaultConfig(self):
-      return self.saveConfig(self.ConfDir, verbose = 1)
+    # save configuration
+      # propose name for DAQ configuration file 
+      RunTag = str(self.lE_RunTag.text() ).replace(' ','')
+      DAQfile = RunTag + '.daq'
+      fullDAQfile = self.ConfDir + '/' + RunTag + '.daq'
+      # select file and direcotory 
+      path2File = QtWidgets.QFileDialog.getSaveFileName(None,
+         'save daq config as', fullDAQfile, 'daq(*.daq)')
+      fullDAQfile = str(path2File[0]).strip()
+      if  fullDAQfile is not '' :
+      # remember new config directory
+        self.ConfDir = os.path.dirname(fullDAQfile)
+      else:
+        return 1
+      # save all configs 
+      return self.saveConfigs(self.ConfDir, verbose=0)
 
     def savePhyPiConfig(self):
       '''
@@ -368,7 +404,7 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
       if not os.path.exists(self.path_to_WD): 
         os.makedirs(self.path_to_WD)
 
-      if self.saveConfig(self.path_to_WD): return
+      if self.saveConfigs(self.path_to_WD): return
       print("   - files for this run stored in directory " + self.path_to_WD) 
 
     # save changes to phypidaq configuration
@@ -426,7 +462,7 @@ def runPhyPiUi():
   if conf_directory == '~':  conf_directory = homedir
   if conf_directory == '.':  conf_directory = os.getcwd()
   if conf_directory == ' ':  conf_directory = path_to_PhyPi
-  DAQconfFile = cfg_dict['daq_file']
+  DAQconfFile = cfg_dict['config_directory']+'/'+cfg_dict['daq_file']
       
   # check for/read command line arguments and get DAQ configuration file
   if len(sys.argv) == 2:
