@@ -289,7 +289,7 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
           return 1
       return 0
    
-    def saveConfigs(self, confdir, verbose=0):
+    def saveConfigs(self, confdir, DAQfile=None, verbose=0):
     # save all Config files to confdir
 
       # retrieve actual configuration from GUI
@@ -313,9 +313,9 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
           return 1
       
       # name of DAQ configuration file in confdir
-      RunTag = str(self.lE_RunTag.text() ).replace(' ','')
-      DAQfile = RunTag + '.daq'
-      fullDAQfile = confdir + '/' + RunTag + '.daq'
+      if(DAQfile)==None: # derive from RunTag if not given
+        DAQfile = str(self.lE_RunTag.text() ).replace(' ','') + '.daq'
+      fullDAQfile = confdir + '/' + DAQfile
 
       if verbose:
         if self.MB_Question('Question', 
@@ -365,21 +365,20 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
 
     def saveDefaultConfig(self):
     # save configuration
-      # propose name for DAQ configuration file 
-      RunTag = str(self.lE_RunTag.text() ).replace(' ','')
-      DAQfile = RunTag + '.daq'
-      fullDAQfile = self.ConfDir + '/' + RunTag + '.daq'
+      # propose name for DAQ configuration file from RunTag 
+      _file = self.ConfDir + '/' + str(self.lE_RunTag.text() ).replace(' ','') + '.daq'
       # select file and direcotory 
       path2File = QtWidgets.QFileDialog.getSaveFileName(None,
-         'save daq config as', fullDAQfile, 'daq(*.daq)')
+         'save configuration as', _file, 'daq(*.daq)')
       fullDAQfile = str(path2File[0]).strip()
       if  fullDAQfile is not '' :
       # remember new config directory
         self.ConfDir = os.path.dirname(fullDAQfile)
+        DAQfile = os.path.basename(fullDAQfile)
       else:
         return 1
       # save all configs 
-      return self.saveConfigs(self.ConfDir, verbose=0)
+      return self.saveConfigs(self.ConfDir, DAQfile=DAQfile, verbose=0)
 
     def savePhyPiConfig(self):
       '''
@@ -462,7 +461,7 @@ def runPhyPiUi():
   if conf_directory == '~':  conf_directory = homedir
   if conf_directory == '.':  conf_directory = os.getcwd()
   if conf_directory == ' ':  conf_directory = path_to_PhyPi
-  DAQconfFile = cfg_dict['config_directory']+'/'+cfg_dict['daq_file']
+  DAQconfFile = conf_directory + '/' + cfg_dict['daq_file']
       
   # check for/read command line arguments and get DAQ configuration file
   if len(sys.argv) == 2:
@@ -491,7 +490,3 @@ def runPhyPiUi():
 
 if __name__ == "__main__": # - - - - - - - - - - - - - - - - - - - -
   runPhyPiUi()
-
-  
-
-
