@@ -803,4 +803,10 @@ aus dem Stromnetz aufgefangen werden. Höhere Störfrequenzen findet man in der 
     empfohlene Komponenten für dieses Projekt
 - `doc/Bauanleitung_Kraftsensor.md (.pdf)`   
     Bauanleitung für Kraftsenor
+- `Hardware` 
+    Ordner mit Dokumentation zum Bau einer Platine mit analogen Vorverstärkeren:  
+    - Elektrometerverstärker
+    - Pegelwandler
+    - Instrumentenverstärker 
+    - ... und andere
 

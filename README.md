@@ -548,4 +548,10 @@ sudo usermod -a -G tty pi
     recommended components for this project
 - `doc/Bauanleitung_Kraftsensor.md (.pdf)`  
     building instructions for a force sensor
+- `Hardware`  
+    documentation of card with analog preamplifiers
+    -  electrometer 
+    - instrument amplifier
+    - level shifter
+    - ... and others
 
