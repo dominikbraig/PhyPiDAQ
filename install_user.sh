@@ -3,7 +3,13 @@
 # script to initially copy files to user direcotry ~/PhyPi/
 #
 
-USERDIR="PhyPi"  # user directory
+# -----------------------------------------
+
+if [ "$1" != "" ]; then
+    USERDIR=$1
+else
+    USERDIR="PhyPi"
+fi
 
 # -----------------------------------------
 
