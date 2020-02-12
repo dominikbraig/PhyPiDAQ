@@ -13,6 +13,9 @@ Das Paket bietet eine Abstraktionsschicht für Messgeräte und Sensoren, die an 
 
 Die Beschreibung des zu Grunde liegenden Konzepts, eine Liste der empfohlenen Komponenten und ausführlich  dokumentierte Beispiele finden sich in der [Masterarbeit von Moritz Aupperle](http://ekp-invenio.physik.uni-karlsruhe.de/record/49063) .
 
+Für viele typische Messaufgaben werden Vorverstärker zur Impedanzanpassung (z.B. Elektrometer-Verstärker), zur Pegelanpassung oder zur Verstärkung kleiner Signale im µV-Bereich benätigt. Ein
+ Vorschlag zur einfachen Realisierung solcher Schaltungen ist im Verzeichnis `Hardware/` dokumentiert.  
+
 
 
 ## Schnellstart
@@ -265,7 +268,8 @@ Schüler oder Studierende zu Beginn mit dem vollen Umfang des Pakets *PhyPiDAQ* 
 ```bash
 # Erzeugen eines Arbeitsverzeichnissen PhyPi und Kopieren von Beispielen und Konfigurationsdateien in das neu erzeugte Verzeichnis.
 cd ~/git/PhyPiDAQ
-./install_user.sh
+./install_user.sh [<Verzeichnisname>]  
+#   die Eingabe eines Verzeichnisnamens ist optional; voreingestellt ist "PhyPi"
 
 # klickbares Symbol auf dem Desktop zum Zugang zu phypi
 cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop
@@ -274,7 +278,7 @@ cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop
 Um versehentliches Überschreiben von Dateien im Paket *PhyPiDAQ* zu vermeiden, sollte eine Verschiebung bzw. Kopieren in den Systembereich in Erwägung gezogen werden, z. B. nach  /usr/local/:
 
 ```bash
-sudo cp ~/git/PhyPiDAQ /usr/local/
+sudo cp -a ~/git/PhyPiDAQ /usr/local/
 ```
 
 Die Pfade in *~/Desktop/phypi.desktop* müssen dann ebenfalls entsprechend angepasst werden. Dies wird am einfachsten durch Klicken mit der rechten Maustaste auf das *phypi*-Symbol erreicht. Im sich dann öffnenden Menü den Dialog "Eigenschaften" wählen und alle Pfade von  *~/git/*  ->  */usr/local/* ändern.
@@ -307,21 +311,23 @@ Die Module zur Visualisierung hängen von *matplotlib.pyplot* , *Tkinter* und *p
 Die vom oben schon verwendeten Scritp `installlibs.sh`  ausgeführten Schritte sind die folgenden:
 
 ```bash
-# script installlibs.sh
-sudo apt-get update
-sudo apt-get upgrade
+#
+# script to install libraries PhyPiDAQ depends on
+#
+# -----------------------------------------------
+
+sudo apt-get install python3-yaml
 sudo apt-get install python3-scipy
 sudo apt-get install python3-matplotlib
 sudo apt-get install python3-pyqt5
-sudo apt-get install libatlas-base-dev # wird benoetigt für neueste Version von numpy
-sudo pip3 install pyyaml
-# Treiber for unterstützte Sensoren und Komponenten
-sudo pip3 install installlibs/whl/*.whl
-# Treiber für PicoScope 2000 und 2000B
-sudo dpkg -i installlibs/picoscopelibs/*.deb
+sudo apt-get install libatlas-base-dev # needed to build nupmy
 
-sudo usermod -a -G tty pi # USB-Zugang für user pi gewaehren
+sudo pip3 install installlibs/whl/*.whl # python wheels
 
+sudo pip3 install installlibs/tgz/*.tar.gz # python packages 
+
+sudo dpkg -i installlibs/picoscopelibs/*.deb # picoscope 
+sudo usermod -a -G tty pi # grant acces to USB for user pi
 ```
 
 

@@ -33,6 +33,11 @@ If no configuration file is given, the default `PhyPiConf.daq` is used.
 
 The sub-directory `./examples` contains a number of simple *python* scripts illustrating the usage of data acquisition and display modules with minimalist code.
 
+For many typical measurement tasks, preamplifiers are used to adjust the impedance (e.g. electrometer amplifier), to adjust the range levels or to amplify small signals in the µV range. A  suggestion for the 
+simple implementation of such circuits is documented in the `Hardware /` directory.
+
+
+
 
 ## Configuration files for PhyPiDAQ
 
@@ -258,8 +263,8 @@ cd ~/git/PhyPiDAQ  # change to installation directory
 ```bash
 # create PhyPi working directory and make examples and config files available
 cd ~/git/PhyPiDAQ
-./install_user.sh
-
+./install_user.sh [<directory name>]
+    # the input of a directory name is optional; default is "PhiPi"
 # provide icon to graphical user interface
 cp ~/git/PhyPiDAQ/phypi.desktop ~/Desktop
 ```
@@ -303,21 +308,23 @@ The visualization modules depend on *matplotlib.pyplot*, *Tkinter* and *pyQt5*, 
 For completeness, the steps performed by the script `installlibs.sh` are documented here:
 
 ```bash
-# script installlibs.sh
+#
+# script to install libraries PhyPiDAQ depends on
+#
+# -----------------------------------------------
 
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get install python3-yaml
 sudo apt-get install python3-scipy
 sudo apt-get install python3-matplotlib
 sudo apt-get install python3-pyqt5
-sudo apt-get install libatlas-base-dev # needed by latest version of numpy
-sudo pip3 install pyyaml
-# pyhton drivers for sensors and devices
-sudo pip3 install installlibs/whl/*.whl
-# install drivers for PicoScope 2000 and 2000B 
-sudo dpkg -i installlibs/picoscopelibs/*.deb
+sudo apt-get install libatlas-base-dev # needed to build nupmy
 
-sudo usermod -a -G tty pi # USB access for user pi
+sudo pip3 install installlibs/whl/*.whl # python wheels
+
+sudo pip3 install installlibs/tgz/*.tar.gz # python packages 
+
+sudo dpkg -i installlibs/picoscopelibs/*.deb # picoscope 
+sudo usermod -a -G tty pi # grant acces to USB for user pi
 ```
 <div style="page-break-after: always;"></div>
 
