@@ -379,7 +379,8 @@ class PhyPiUiInterface(Ui_PhyPiWindow):
         DAQfile = os.path.basename(fullDAQfile)
       else:
         return 1
-      # save all configs 
+      # set name and save all configs 
+      self.lE_DAQConfFile.setText(fullDAQfile)
       return self.saveConfigs(self.ConfDir, DAQfile=DAQfile, verbose=0)
 
     def saveEnvironment(self):
