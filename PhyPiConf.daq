@@ -10,6 +10,7 @@ DeviceFile: config/ADS1115Config.yaml    # 16 bit ADC, I2C bus
 #DeviceFile: config/MCP3208Config.yaml   # 12 bit ADC, SPI bus
 #DeviceFile: config/groveADCConfig.yaml  # 12 bit ADC on grove RPI shield
 #DeviceFile: config/PSConfig.yaml        # PicoTechnology USB scope 
+#DeviceFile: config/PSConfig2000.yaml    # PicoTechnology USB scope 220xA
 #DeviceFile: config/MAX31865Config.yaml  # Pt 100 sensor
 #DeviceFile: config/GPIOCount.yaml       # frequency count
 #DeviceFile: config/DS18B20Config.yaml   # digital temperature sensor
@@ -18,6 +19,7 @@ DeviceFile: config/ADS1115Config.yaml    # 16 bit ADC, I2C bus
 #DeviceFile: config/INA219Config.yaml    # Voltage/Current sensor
 #DeviceFile: config/MMA845xConfig.yaml   # Accelerometer 
 #DeviceFile: config/VL53LxConfig.yaml    # ToF distance sensor 
+#DeviceFile: config/MLX90393Config.yaml   # Magnetometer 
 
 ## an example of multiple devices
 #DeviceFile: [config/ADS1115Config.yaml, config/GPIOCount.yaml]  

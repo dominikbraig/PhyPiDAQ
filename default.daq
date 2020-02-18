@@ -13,6 +13,7 @@ DeviceFile: config/ReplayConfig.yaml     # data from File
 #DeviceFile: config/MCP3008Config.yaml   # 10 bit ADC, SPI bus
 #DeviceFile: config/MCP3208Config.yaml   # 12 bit ADC, SPI bus
 #DeviceFile: config/PSConfig.yaml        # PicoTechnology USB scope 
+#DeviceFile: config/PSConfig2000.yaml    # PicoTechnology USB scope 220xA
 #DeviceFile: config/MAX31865Config.yaml  # Pt 100 sensor
 #DeviceFile: config/GPIOCount.yaml       # frequency count
 #DeviceFile: config/DS18B20Config.yaml   # digital temperature sensor
@@ -20,6 +21,7 @@ DeviceFile: config/ReplayConfig.yaml     # data from File
 #DeviceFile: config/BMP180Config.yaml    # pressure/temperature sensor
 #DeviceFile: config/INA219Config.yaml    # Voltage/Current sensor
 #DeviceFile: config/MMA845xConfig.yaml   # Accelerometer 
+#DeviceFile: config/MLX90393Config.yaml   # Magnetometer 
 
 ## an example of multiple devices
 #DeviceFile: [config/ADS1115Config.yaml, config/GPIOCount.yaml]  
