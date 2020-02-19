@@ -2,6 +2,8 @@
 
 #### Datenerfassung und Analyse für die Physikausbildung mit Raspberry Pi
 
+Aktuelle Präsentationen zur Projekt PhyPiDAQ:  http://ekpwww.etp.kit.edu/~quast/Projects/PhyPiDAQ/
+
 Dieser Code in der Programmmiersprache *python3* bietet einige grundlegende Funktionen zur Datenerfassung und -visualisierung wie Datenlogger, Balkendiagramm, XY- oder Oszilloskopanzeige und Datenaufzeichnung auf Festplatte.
 
 Neben den GPIO Ein- und Ausgängen des Raspberry Pi werden die Analog-Digital-Wandler ADS1115 und MCP3008 sowie USB-Oszilloskope (PicoScope der Firma picotech) als Eingabegeräte für analoge Daten sowie eine Reihe von digitalen Sensoren mit Protokollen wie I²C oder SPI unterstützt.
@@ -214,7 +216,6 @@ frqSG: 0.    # aus
 Beispiele für andere Geräte, wie den Analog-Digital-Wandler MCP3008, für Ratenmessungen über die GPIO - Pins des Raspberry Pi oder Temperaturmessungen mit dem digitalen 1-Wire Thermometer DS18B20,  PT100-Sensoren am MAX31865 'Resistance-to-Digital Converter' oder mit Thermoelementen (Typ K) am MAX31855 'Thermocouple-to-Digital Converter' sind im Konfigurationsverzeichnis `./config/` enthalten, siehe `MCP3008Config.yaml` , `GPIOcount.yaml`, `DS18B20Config.yaml` , `MAX31865Config.yaml` oder`MAX31855Config.yaml`.
 
 <div style="page-break-after: always;"></div>
-
 ## Installation von PhyPiDAQ auf dem Raspberry Pi
 
 **Beziehen des PhyPiDAQ Codes und einfache Installation**
@@ -343,7 +344,6 @@ werden; das picotech-raspbian-Repository kann dazu hinzugefügt werden:
 4. Schließen Sie die Datei /etc/apt/sources.list mit `Strg + X`.
 
 <div style="page-break-after: always;"></div>
-
 Nun können die Treiber für PicoScope-Geräte mit *apt-get* eingebunden und ggf. aktualisiert werden: 
 
 ```bash
@@ -640,7 +640,6 @@ aus dem Stromnetz aufgefangen werden. Höhere Störfrequenzen findet man in der 
     graphische Oberfläche zum Editieren der Konfiguration und Starten des Skripts `run_phypi.py`
 
 <div style="page-break-after: always;"></div>
-
 ### Module
 
 - `phypidaq/__init__.py`  

@@ -6,6 +6,9 @@ This is the **English** version of the documentation.
 
 For German readers:  
 Die **deutsche Version** dieses Dokuments findet sich unter dem Link [README_de.md](README_de.md) bzw. [README_de.pdf](README_de.pdf) .
+Aktuelle Präsentationen zur Projekt PhyPiDAQ:  http://ekpwww.etp.kit.edu/~quast/Projects/PhyPiDAQ/
+
+
 
 
 This *python3*  code provides some basic functionality for data acquisition and visualisation like data logger, bar-chart, XY- or oscilloscope display and data recording on disk.  
@@ -218,7 +221,6 @@ frqSG: 0.
 Examples of other devices like the analog-to-digital converter MCP3008, of rate measurements via the GPIO pins of the Raspberry Pi or temperature measurements with the 1-wire digital thermometer DS18B20,   PT100 sensors and the resistance-to-digital converter MAX31865 or thermocouples and the thermocouple-to-digital converter MAX31855 are also contained in the configuration directory, see files `MCP3008Config.yaml`, `GPIOcount.yaml`, `DS18B20Config.yaml` , `MAX31865Config.yaml` or `MAX31855Config.yaml`, respectively.
 
 <div style="page-break-after: always;"></div>
-
 ## Installation of PhyPiDAQ on a Raspberry Pi
 
 **Get PhyPiDAQ code and dependencies**
@@ -327,7 +329,6 @@ sudo dpkg -i installlibs/picoscopelibs/*.deb # picoscope
 sudo usermod -a -G tty pi # grant acces to USB for user pi
 ```
 <div style="page-break-after: always;"></div>
-
 The drivers for PicoScope oscilloscopes may also be installed from the repository of the vendor, which is included as follows:
 
 1. Open file /etc/apt/sources.list by `sudo nano /etc/apt/sources.list`.   
@@ -338,7 +339,6 @@ The drivers for PicoScope oscilloscopes may also be installed from the repositor
 4. Close /etc/apt/sources.list by `Ctrl + X`.
 
 <div style="page-break-after: always;"></div>
-
 Now the drivers for drivers for the various PicoScope devices can be included end eventually
 updated with *apt-get*:
 
