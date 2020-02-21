@@ -46,8 +46,8 @@ class MLX90393Config(object):
       print("MLX90393: invalid range - set to 1.0")
 
     self.mlx90393_gc = gc
-    g = self.gain
-    self.ChanLims = [[-g*10., g*10.],[-g*10., g*10.], [-g*10., g*10.]]
+    lm = 50./self.gain
+    self.ChanLims = [[-lm, lm],[-lm, lm], [-lm, lm]]
 
   def init(self):
     I2C_BUS = busio.I2C(board.SCL, board.SDA)

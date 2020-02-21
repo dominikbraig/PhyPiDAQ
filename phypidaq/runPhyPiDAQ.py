@@ -299,7 +299,8 @@ class runPhyPiDAQ(object):
         PhyPiConfDict['ChanUnits' ] = self.ChanUnits
       else:
         PhyPiConfDict['ChanUnits' ] = [''] * nc 
-    if len(PhyPiConfDict['ChanUnits']) < nc:
+    l = len(PhyPiConfDict['ChanUnits']) 
+    if l < nc:
       PhyPiConfDict['ChanUnits'] += (nc-l) * ['']
 
     if 'ChanLabels' not in PhyPiConfDict:
