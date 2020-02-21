@@ -218,6 +218,7 @@ class runPhyPiDAQ(object):
     DEVNames = []               # device names
     NHWChannels = 0             # total number of hardware channels
     ChanNams = []               # names of HW channels
+    ChanUnits = []              # Units of HW channels
     ChanLims = []               # limits
     ChanIdx_ofDevice = []       # first channel of each device
 
@@ -242,11 +243,16 @@ class runPhyPiDAQ(object):
       NHWChannels += nC
       ChanNams += DEVs[i].ChanNams[0 : nC]
       ChanLims += DEVs[i].ChanLims[0 : nC]
+      try:
+        ChanUnits += DEVs[i].ChanUnits[0 : nC]
+      except:
+        ChanUnits = None
 
     self.DEVs = DEVs
     self.ChanIdx_ofDevice = ChanIdx_ofDevice 
     self.ChanLims = ChanLims
     self.ChanNams = ChanNams
+    self.ChanUnits = ChanUnits
     self.NHWChannels = NHWChannels
       
   # set up calibration Functions
@@ -287,13 +293,14 @@ class runPhyPiDAQ(object):
         self.ChanNams += (NFormulae-NHWChannels) * ['F']
       for ifc in range( NFormulae): 
         if Formulae[ifc]: self.ChanNams[ifc] = 'F' + str(ifc)
-     
+
     if 'ChanUnits' not in PhyPiConfDict:
-      PhyPiConfDict['ChanUnits' ] = [''] * nc 
-    else:
-      l = len(PhyPiConfDict['ChanUnits'])
-      if l < nc:
-        PhyPiConfDict['ChanUnits'] += (nc-l) * ['']
+      if self.ChanUnits != None:
+        PhyPiConfDict['ChanUnits' ] = self.ChanUnits
+      else:
+        PhyPiConfDict['ChanUnits' ] = [''] * nc 
+    if len(PhyPiConfDict['ChanUnits']) < nc:
+      PhyPiConfDict['ChanUnits'] += (nc-l) * ['']
 
     if 'ChanLabels' not in PhyPiConfDict:
       PhyPiConfDict['ChanLabels' ] = [''] * nc 
