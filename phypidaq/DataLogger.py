@@ -72,10 +72,8 @@ class DataLogger(object):
     except:
       self.NAxes = 1
       self.Cidx1 = self.Cidx0
-    cu0= self.ChanUnits[self.Cidx0]
-    cu1= self.ChanUnits[self.Cidx1]
-    if cu0: cu0 = ' ('+ cu0 +')'
-    if cu1: cu1 = ' ('+ cu1 +')'
+    cu0= '('+self.ChanUnits[self.Cidx0]+')' if self.ChanUnits[self.Cidx0] else ''
+    cu1= '('+self.ChanUnits[self.Cidx1]+')' if self.ChanUnits[self.Cidx1] else ''
     self.AxisLabels = [self.ChanLabels[self.Cidx0] + cu0, 
                        self.ChanLabels[self.Cidx1] + cu1 ]
 
