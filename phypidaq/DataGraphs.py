@@ -80,10 +80,8 @@ class DataGraphs(object):
     except:
       self.NAxes = 1
       self.Cidx1 = self.Cidx0
-    cu0= self.ChanUnits[self.Cidx0]
-    cu1= self.ChanUnits[self.Cidx1]
-    if cu0: cu0 = ' ('+ cu0 +')'
-    if cu1: cu1 = ' ('+ cu1 +')'
+    cu0= '('+self.ChanUnits[self.Cidx0]+')' if self.ChanUnits[self.Cidx0] else ''
+    cu1= '('+self.ChanUnits[self.Cidx1]+')' if self.ChanUnits[self.Cidx1] else ''
     self.AxisLabels = [self.ChanLabels[self.Cidx0] + cu0, 
                        self.ChanLabels[self.Cidx1] + cu1 ]
 
@@ -183,8 +181,8 @@ class DataGraphs(object):
       cy = self.xyPlots[0][1]
       axXY.set_xlim(*self.ChanLim[cx])
       axXY.set_ylim(*self.ChanLim[cy])
-      cux = ' (' + self.ChanUnits[cx]+')'
-      cuy = ' (' + self.ChanUnits[cy]+')'
+      cux = ' (' + self.ChanUnits[cx]+')' if self.ChanUnits[cx] else ''
+      cuy = ' (' + self.ChanUnits[cy]+')' if self.ChanUnits[cy] else ''
       axXY.set_xlabel(self.ChanNams[cx] + ' ' + self.ChanLabels[cx] + cux, 
                       size='x-large', color=self.ChanColors[cx])
       axXY.set_ylabel(self.ChanNams[cy] + ' ' + self.ChanLabels[cy] + cuy, 
