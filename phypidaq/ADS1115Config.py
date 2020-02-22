@@ -81,6 +81,7 @@ class ADS1115Config(object):
           self.ChanNams[i] = str(c-1) +'-3'
       else:
         self.ChanLims[i] = [0., self.VRef[i]]
+    self.ChanUnits = ['V'] * self.Nchannels
       
   def acquireData(self, buf): 
     for i, c in enumerate(self.ADCChannels):

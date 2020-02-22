@@ -35,9 +35,11 @@ class groveADCConfig(object):
 # provide configuration parameters
     self.ChanNams = []
     self.ChanLims = []
+    self.ChanUnits = []
     for c in self.ADCChannels:
       self.ChanNams.append('c'+str(c) ) 
       self.ChanLims.append([0., Vmax])
+      self.ChanUnits.append('mV')
       
   def acquireData(self, buf): 
     # read data from ADC

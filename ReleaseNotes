@@ -3,7 +3,11 @@ Release notes for PhyPiDAQ
 
 v1.0dev
 
-
+  - improvments to graphical user interface
+  - support for MLX90393 magnetic field sensor
+  - added description of hardware (preamplifiers)
+  - support for ADC on Raspberry Pi Grove Base Hat
+  
 v9.4beta Jun 2019
 
   - added output to fifo
