@@ -874,12 +874,12 @@ electrons have the kinetic energy *E<sub>kin</sub>=E<sub>light</sub>-E_A*. For t
 of the electric field, *E<sub>field</sub>=U*e* applies, where *U* is the counter  
 voltage and *e* is the elementary charge. In the stationary case, the energy of  
 the electric field is the same as the kinetic energy, *E<sub>field</sub>=E<sub>kin</sub>*, so  
-that when inserted, *U*e=hν−E_A* results. For the voltage *U*,  
-*U=h/e*ν+eA* applies. The ratio *h/e* corresponds to the slope in the *U*-*ν*  
+that when inserted, *U·e=hν−E_A* results. For the voltage *U*,  
+*U=h/eν+eA* applies. The ratio *h/e* corresponds to the slope in the *U*-*ν*  
 diagram in the figure below. The y-axis intercept corresponds to the work  
 function *E_A*, with a negative sign indicating that this work has to be done.  
 The deviation of *(h/e)<sub>measured</sub>* from the literature value of  
-*h/e=4.14*10^(−15) Js/C* is 3.5%, which indicates a very precise measurement and the set  
+*h/e=4.14·10^(−15) Js/C* is 3.5%, which indicates a very precise measurement and the set  
 goal of measuring in the percentage range fulfilled. The work function for a  
 potassium cathode is *E_A = 2.25 eV*. The y-intercept corresponds to  
 *|U| = 1. 97V*. Since no other effects such as contact stresses are taken into account here,  
@@ -896,7 +896,7 @@ which is evident from the relatively slow charging.
                     ![Figure 39](Hardware/Fotos/photo_1.png)  
              
 *Fig. 40*: **Photoeffect** Counter voltage versus frequency of light plotted  
-with linear regression. The slope corresponds to the ratio * h / e *. 
+with linear regression. The slope corresponds to the ratio *h/e*. 
                     ![Figure 40](Hardware/Fotos/photo_2.png)  
 
 
