@@ -171,7 +171,8 @@ First the socket headers (Reichelt, MPE 115-1-020) are clipped to the appropriat
 These are soldered to the corresponding holes marked by squares on the board. The other  
 components are also soldered according to the labeling on the board. Pay attention to the  
 polarity of the electrolytic capacitors - the side marked in white corresponds to the minus  
-pole. Resistors and kerkos do not have any polarity. The brackets for the ICs are soldered in such a way that the semicircular recess matches  the label. This shows which way  
+pole. Resistors and kerkos do not have any polarity. The brackets for the ICs are soldered  
+in such a way that the semicircular recess matches  the label. This shows which way  
 around the IC must be inserted later.  
 
 In the picture on the left you can see two places for resistors and two for capacitors,  
@@ -216,8 +217,10 @@ sockets (R *, MBI1SW and other colors) and stripped. The feet of a red
 (R *, RND 135-00126) and a green LED (R *, RND 135-00122) are also  
 soldered to the cables and insulated, as well as the two Grove sockets  
 (R *, GRV CONNEC4PIN) and two pin headers (R *, RPI HEADER 40).  
-*Fig. 7*: Box construction, step 1: Prepare plug connections
+
+*Fig. 7*: Box construction, step 1: Prepare plug connections  
                     ![Figure 7](Hardware/Fotos/koffer_1.png)  
+
 Now the printed breadboard is drilled through with a 5mm wood drill in the  
 designated places. The square cutouts for the Grove connections and the  
 pin headers can be drilled through with a handpiece, for example.  
@@ -430,9 +433,9 @@ git pull
 ## 4.1 starting surface
 
 To start the *PhyPiDAQ* application, double-click the icon on the desktop
-**PhyPi**.
+**PhyPi**.  
 
-*Fig. 28*: Open PhyPiDAQ
+*Fig. 28*: Open PhyPiDAQ  
                     ![Figure 28](Hardware/Fotos/bedienung_1.png)  
                     
 You will be asked how you would like to open it, select "*Run*" here. Two  
@@ -444,7 +447,7 @@ which can usually be used to fix the problem quickly. The more important
 window is the user interface of *PhyPiDAQ*.
 
 
-*Fig. 29*: User interface *PhyPiDAQ* 
+*Fig. 29*: User interface *PhyPiDAQ*  
                     ![Figure 29](Hardware/Fotos/bedienung_2.png)  
    
 The tab "*Control"*, in which you are after opening, is the start tab. A  
@@ -456,7 +459,7 @@ is essential if *PhyPiDAQ* is used in several school classes. So it is
 highly recommended to use a structure like the following:  
 
 *Fig. 30*: folder structure
-                    ![Figure 30](Hardware/Fotos/ordnerstruktur.png)  
+                    ![Figure 30](Hardware/Fotos/ordnerschema.png)  
                     
 You can create new folders in the file manager (similar to Windows "My  
 Computer" or Mac "Finder") by right-clicking on *"New"* -> *"Folder"*  
@@ -482,16 +485,16 @@ you wrote "default" in *Name:*. Each time you start the program with
 "StartRun", an additional file is created with name, time and date, which  
 is saved in the directory you specified for "Work Dir", e.g. school/class_12/photoeffect.
 
-**Task:** Now create a folder structure as shown in Fig. 30 with your school classes. Create a folder with the name *"Testversuch"* in one of these classes. Then switch to the *PhyPiDAQ* user interface and select the *test* you just created in *Work Dir*. Now assign the name "standard experiment" and save the project. Then verify in the file manager that the created project is there.
+**Task:** Now create a folder structure as shown in Fig. 30 with your school classes. Create a folder with the name *"Test"* in one of these classes. Then switch to the *PhyPiDAQ* user interface and select the *test* you just created in *Work Dir*. Now assign the name "standard experiment" and save the project. Then verify in the file manager that the created project is there.
 
 
 <a name="konfigurationsdatei"></a>
 ## 4.2 configuration file
 
 We now want to familiarize ourselves with the second tab, *"Configuration"*.  
-Click on the tab *"Configuration"*.
+Click on the tab *"Configuration"*.  
 
-*Fig. 32*: configuration
+*Fig. 32*: configuration  
                     ![Figure 32](Hardware/Fotos/bedienung_4.png)  
 A window can now be seen in which all parameters for the experiment can be  
 set, such as:  
@@ -544,7 +547,7 @@ has now accepted the selected sensor.
 Now click on the tab *"Device Config"* at the top. The parameters of the  
 sensor can now be seen.
 
-*Fig. 33*: Configuration of the sensor
+*Fig. 33*: Configuration of the sensor  
                     ![Figure 33](Hardware/Fotos/bedienung_5.png)  
                     
 Here the syntax is the same again, that means:
@@ -584,7 +587,7 @@ DifModeChan: [false]   # enable differential mode for Channels
 Gain: [2/3]                # programmable gain of ADC-Channel
 sampleRate: 860             # programmable Sample Rate of ADS1115
 ```  
-Korrekt ist:
+Correct is:
 ```bash
 # example of a configuration file for ADC ADS1115
 
@@ -640,9 +643,10 @@ electrometer. The mass of the measuring case is pulled to the earth potential.
 A capacitor with a capacity of 1 nF is connected between the capacitor plate  
 and the earth. The output of the electrometer is connected to the level converter  
 and this in turn to the ADC. This means that both positive and negative  
-voltages can be read out.
+voltages can be read out.  
 **elektrostatik.daq:**
-*Fig. 34*: Electrostatic experiment setup                    ![Figure 34](Hardware/Fotos/elektrostatik_1.png)  
+*Fig. 34*: Electrostatic experiment setup  
+                    ![Figure 34](Hardware/Fotos/elektrostatik_1.png)  
              
 We now deal with the configuration file.  
 
@@ -659,7 +663,7 @@ Interval: 0.1                 # logging interval
 DisplayModule: DataGraphs     # text, bar-graph, history and xy-view
 Title: "Data from File"       # display title
 ```
-** myADS1115Config.yaml:** 
+**myADS1115Config.yaml:** 
 ```bash  
 # example of a configuration file for ADC ADS1115
 
@@ -673,7 +677,7 @@ sampleRate: 860             # programmable Sample Rate of ADS1115
 You may have to adjust the *Gain* in the penultimate line - depending on whether  
 the displayed signal is too small or too large. On the software side, the function    
 of the level converter is compensated as follows:  
-U <sub>capacitor</sub> = 2 · U <sub>measured</sub> - 5 V, which is already taken  
+U<sub>capacitor</sub> = 2 · U<sub>measured</sub>-5V, which is already taken  
 into account in *ChanFormula*. Before the measurement begins, the capacitor plate  
 is connected to earth potential using a conductor so that it is uncharged. If a  
 charged body is brought closer to the capacitor plate, the electric field of the  
@@ -721,15 +725,16 @@ A force measurement is to be carried out using a load cell. It is checked whethe
 the voltage applied to the load cell increases linearly with the attached mass, as  
 expected.
 
-The schematic structure is shown below:
-*Fig. 37*: **force sensor** schematic structure
+The schematic structure is shown below:  
+*Fig. 37*: **force sensor** schematic structure  
                     ![Figure 36](Hardware/Fotos/kraft_aufbau.png)  
 The load cell used can be rebuilt according to [these instructions](https://github.com/GuenterQuast/PhyPiDAQ/blob/master/doc/Bauanleitung_Kraftsensor.pdf).
            
-First, the load cell is supplied with an operating voltage of $U=5V$ and screwed  
+First, the load cell is supplied with an operating voltage of U=5V and screwed  
 to a device so that weights can be attached to it. The voltage difference between  
 the two outputs of the load cell is a measure of the applied force. Since this  
-difference is typically in the $mV$ range, the voltage is amplified using the  instrumentation amplifier. The output of the instrumentation amplifier is connected  
+difference is typically in the mV range, the voltage is amplified using the  
+instrumentation amplifier. The output of the instrumentation amplifier is connected  
 to input A0 of the ADC. Since the necessary gain factor is unknown, it is initially  
 set small and then increased during the measurement until the signal is in a  
 suitable value range. Since the polarity of the voltage is also unknown, a  
@@ -744,7 +749,7 @@ the ADC and A0 - A1 selected as the output.
 
 Once the setup is complete, the measurement can be started and the amplification  
 factor selected with different masses so that a voltage is visible. The gain factor  
-here is $A=18$. While the measurement is in progress, pieces of weight up to  
+here is A=18. While the measurement is in progress, pieces of weight up to  
 500 g are hung on the load cell in 50 g increments. In addition, the voltage is  
 taken up if no mass is attached.  
 The measured values ​​are then exported and the stresses are assigned to the  
@@ -797,8 +802,8 @@ sampleRate: 860
 ### 5.3 Photo effect
 
 The photo effect is examined in more detail below. The resulting counter-voltage  
-should be measured for six different wavelengths in the range from λ = 360 nm to  
-λ=590 nm. Then the ratio $h/e$, where $h$ is Planck's quantum and $e$ is  
+should be measured for six different wavelengths in the range from *λ = 360 nm* to  
+λ=590 nm. Then the ratio *h/e*, where *h* is Planck's quantum and *e* is  
 the elementary charge, should be determined. 
 
 A mercury lamp is used as the light source because it also emits light in the UV  
@@ -827,7 +832,7 @@ can be seen in the following figure:
 
 *Fig. 38*: **Photoeffect** schematic structure
                     ![Figure 38](Hardware/Fotos/photo_aufbau.png)  
-The capacitor with $C=47µF$ may have to be adjusted if the charging is too fast  
+The capacitor with *C=47µF* may have to be adjusted if the charging is too fast  
 or too slow.
 
 
@@ -862,22 +867,22 @@ The measurement can now be started and the counter voltage is displayed, which
 results from the charging of the capacitor by the photo effect. The capacitor is  
 connected to ground again for discharging.  
 
-To calculate the ratio $h/e$, the energy balance is first drawn up. The  
-incident light with the wavelength $λ$ has the frequency $ν=λc$ and the  
-energy $E_{light} =hν$. After deducting the work function, the released  
-electrons have the kinetic energy $ E_{kin}=E_{light}-E_A$. For the energy  
-of the electric field, $E_{field}=U*e$ applies, where $U$ is the counter  
-voltage and $e$ is the elementary charge. In the stationary case, the energy of  
+To calculate the ratio *h/e*, the energy balance is first drawn up. The  
+incident light with the wavelength *λ* has the frequency *ν=λc* and the  
+energy $E_{light}=hν$. After deducting the work function, the released  
+electrons have the kinetic energy $E_{kin}=E_{light}-E_A$. For the energy  
+of the electric field, *E_{field}=U*e* applies, where *U* is the counter  
+voltage and *e* is the elementary charge. In the stationary case, the energy of  
 the electric field is the same as the kinetic energy, $E_{field}=E_{kin}$, so  
-that when inserted, $U*e=hν−E_A$ results. For the voltage $U$,  
-$U=h/e*ν+eA$ applies. The ratio $h/e$ corresponds to the slope in the $U$-$ν$  
+that when inserted, *U*e=hν−E_A* results. For the voltage *U*,  
+*U=h/e*ν+eA* applies. The ratio *h/e* corresponds to the slope in the *U*-*ν*  
 diagram in the figure below. The y-axis intercept corresponds to the work  
-function $E_A$, with a negative sign indicating that this work has to be done.  
+function *E_A*, with a negative sign indicating that this work has to be done.  
 The deviation of $(h/e)_{measured}$ from the literature value of  
-$h/e=4.14*10^(−15) Js/C$ is 3.5%, which indicates a very precise measurement and the set  
+*h/e=4.14*10^(−15) Js/C* is 3.5%, which indicates a very precise measurement and the set  
 goal of measuring in the percentage range fulfilled. The work function for a  
-potassium cathode is $E_A = 2.25 eV$. The y-intercept corresponds to  
-$|U| = 1. 97V$. Since no other effects such as contact stresses are taken into account here,  
+potassium cathode is *E_A = 2.25 eV*. The y-intercept corresponds to  
+*|U| = 1. 97V*. Since no other effects such as contact stresses are taken into account here,  
 the determination of the work function with this method is basically only possible  
 with greater uncertainties.  
 Although a detailed calculation is not carried out at this point and the y-axis  
@@ -891,7 +896,7 @@ which is evident from the relatively slow charging.
                     ![Figure 39](Hardware/Fotos/photo_1.png)  
              
 *Fig. 40*: **Photoeffect** Counter voltage versus frequency of light plotted  
-with linear regression. The slope corresponds to the ratio $ h / e $. 
+with linear regression. The slope corresponds to the ratio * h / e *. 
                     ![Figure 40](Hardware/Fotos/photo_2.png)  
 
 
