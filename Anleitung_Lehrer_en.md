@@ -1,21 +1,21 @@
 # PhyPiDAQ documentation (for teachers)
 
 In this manual, the entire PhyPiDAQ workflow, starting from the  
-Installation up to the evaluation of experiments described.  
+Installation up to the evaluation of experiments is described.  
 
 - [What is PhyPiDAQ?](#wasistphypidaq)
 - [What do I need and how do I assemble it?](#wasbraucheichundwiebaueichdaszusammen)
   - [order list](#bestellliste)
   - [building instructions](#bauanleitung)
-    - [solder the circuit board](#platineloeten)
-    - [build suitcase](#kofferbauen)
+    - [soldering the circuit board](#platineloeten)
+    - [building the suitcase](#kofferbauen)
 - [How do I set up the Raspberry Pi and install PyPiDAQ?](#wiesetzeichdenraspberrypiaufundinstalliereichphypidaq)
     - [How do I set up the Raspberry Pi?](#wiesetzeichdenraspberrypiauf)
     - [How do I install PhyPiDAQ?](#wieinstalliereichphypidaq)
 - [How do I use the PhyPiDAQ software?](#wiebedieneichdiephypidaqsoftware)
-    - [Start and start surface](#startenundstartoberflaeche)
+    - [Starting surface](#startenundstartoberflaeche)
     - [configuration file](#konfigurationsdatei)
-    - [start measurement](#messungstarten)
+    - [starting the measurement](#messungstarten)
 - [How do I carry out experiments with it?](#wiefuehreichdamitversuchedurch)
 - [electrostatics](#elektrostatik)
 - [force sensor](#kraftsensor)
@@ -33,18 +33,18 @@ The user interface is designed in such a way that pre-made templates for many \
 sensors can be used to read them out quickly and easily. \
 In addition, it also offers the option of changing the individual parameters \
 like sampling rate, interval, axis labeling, differential mode, \
-functions for direct conversion and many more to change. The\
+functions for direct conversion and many more. The\
 settings can be conveniently saved and recalled so that a \
-demonstration attempt can be shown quickly.
+demonstration can be shown quickly.
 
 A large number of different sensors, such as various analog-digital converters,  
-current sensors, climate data sensors, gamma detectors, ect. supported.  
+current sensors, climate data sensors, gamma detectors, ect. are supported.  
 Here, widespread and inexpensive sensors were used, which have a high level of  
 accuracy that is more than sufficient for school experiments.  
 
 The sensors can be individually connected to the Raspberry Pi using so-called  
-jumper cables, or the circuit board specially designed for PhyPiDAQ can be used  
-on which the sensors are permanently attached. This allows the cabling effort  
+jumper cables, or the circuit board specially designed for PhyPiDAQ on which  
+the sensors are permanently attached. This allows the cabling effort  
 to be reduced to a minimum and experiments can also be set up quickly in the  
 5-minute break. With bespoke 3D printed models, everything can be spaciously  
 attached in an organizer case.  
@@ -156,7 +156,7 @@ The following components are required for the measurement box:
 
 
 <a name="platineloeten"> </a>
-#### 2.2.1 Solder the circuit board
+#### 2.2.1 Soldering the circuit board
 
 First the socket headers (Reichelt, MPE 115-1-020) are clipped to the appropriate lengths.  What is required:
  - 3 x 1 pin  
@@ -172,12 +172,12 @@ These are soldered to the corresponding holes marked by squares on the board. Th
 components are also soldered according to the labeling on the board. Pay attention to the  
 polarity of the electrolytic capacitors - the side marked in white corresponds to the minus  
 pole. Resistors and kerkos do not have any polarity. The brackets for the ICs are soldered  
-in such a way that the semicircular recess matches  the label. This shows which way  
-around the IC must be inserted later.  
+in such a way that the semicircular recess matches the label. This shows in which direction  
+the IC must be inserted.  
 
 In the picture on the left you can see two places for resistors and two for capacitors,  
 which remain free. These are provided so that pull-up resistors and capacitors can be  
-installed to ground in the event of interference on the I²C bus. But first these places  
+installed to ground in the event of interference on the I²C bus. But at first, these places  
 should remain free.  
 
 Finally, the feet that are too long can be clipped off on the back. The components are  
@@ -196,26 +196,26 @@ in red are released
 
 <a name="kofferbauen"> </a>
 <a name="kofferbauen"> </a>
-#### 2.2.2 Build a case
+#### 2.2.2 Building the case
 
 This describes how the PhyPiDAQ hardware with the circuit board, an  
 optional display and wireless keyboard can be attached to a standard  
 organizer case, so that everything can be stored in a spacious,  
-pace-saving and secure manner.  
+space-saving and secure manner.  
 
 
-First the 3D models are printed in the Hardware/3D_Modelle folder.  
+First the 3D models are printed in the *Hardware/3D_Modelle* folder.  
 Depending on the printer, it may be advisable to rotate the models  
 accordingly and use a support structure. Good results have been achieved  
-with PLA. When the printed models are available, construction of the case  
+with PLA. When the printed models are available, the construction of the case  
 can begin.
 
 First, the 30cm long breadboard connectors (C *, 096853-62) are cut once  
 in the middle so that 15cm long cables are present. A total of 46 short  
 cables are required. The cut side is stripped and soldered to the 32 2mm  
-sockets (R *, MBI1SW and other colors) and stripped. The feet of a red  
+sockets (R *, MBI1SW and other colors). The feet of a red  
 (R *, RND 135-00126) and a green LED (R *, RND 135-00122) are also  
-soldered to the cables and insulated, as well as the two Grove sockets  
+soldered to the cables and insulated, as well as the two grove sockets  
 (R *, GRV CONNEC4PIN) and two pin headers (R *, RPI HEADER 40).  
 
 *Fig. 7*: Box construction, step 1: Prepare plug connections  
@@ -231,7 +231,7 @@ attached to the holes provided with superglue. The breadboard can be
 attached with the adhesive tape on the back. The labels are printed out  
 and stuck in the appropriate place.
 
-*Fig. 8*: Box construction, step 2: equip the printed plug-in board with cables
+*Fig. 8*: Box construction, step 2: equipping the printed plug-in board with cables
                     ![Figure 8](Hardware/Fotos/koffer_2.png)  
 
 *Fig. 9*: Box construction, step 3: Stick the lettering on the plug-in plate                    ![Figure 9](Hardware/Fotos/koffer_3.png)  
@@ -249,7 +249,7 @@ Now the brackets for the circuit board and the breadboard are screwed to
 the floor. For this purpose, the circuit board is clamped so that the  
 spacing between the brackets is correct. The distance between the brackets  
 in the back and front of the case should be 3.2 cm and 6.5 cm to the left.  
-Suitable screws are M3x12mm, which are screwed upside down so as not to  
+Suitable screws are M3x12mm, which are screwed upside down so they don't  
 scratch the surface later.
 
 *Fig. 11*: Case construction, step 5: Screw on the circuit board                    ![Figure 11](Hardware/Fotos/koffer_5.png)
@@ -311,12 +311,12 @@ corresponding adapter (R *, RPI M-HDMI HDMI). The HDMI adapter (R *, DELOCK
 in the USB hub with adhesive so that another external display can be  
 connected. The power port of the Raspberry Pi is connected to the power  
 supply of the board (R *, DEBO BREAD POWER) with the adapter (R *, GOOBAY  
-55467). The keyboard can be stowed on the plug-in board when the cover is  
+55467). The keyboard can be stored on the plug-in board when the cover is  
 closed. The cables and adapters are sorted into the three compartments. 
 
 
 
-*Fig. 19*: Case, all parts with display and keyboard can be found in the case
+*Fig. 19*: all parts with display and keyboard can be found in the case
                     ![Figure 19](Hardware/Fotos/koffer_13.png)  
 
 
@@ -331,7 +331,7 @@ closed. The cables and adapters are sorted into the three compartments.
 ## 3. How do I set up the Raspberry Pi and install PhyPiDAQ?
 
 If there is already an operating system on the Raspberry Pi, you can  
-continue directly with [3.2](#wieinstalliereichphypidaq). If not, this  is now put on.
+continue directly with [3.2](#wieinstalliereichphypidaq). If not, this is now put on.
 
 <a name="wiesetzeichdenraspberrypiauf"></a>
 
@@ -353,7 +353,7 @@ Pi OS (other)" and then "Raspberry Pi OS Full".
 
 *Fig. 22*: Selection of the operating system                    ![Figure 22](Hardware/Fotos/installieren_3.png)  
 
-Now insert the SD card into the slot of the computer. Forget that the SD  
+Now insert the SD card into the slot of the computer. Ensure that the SD  
 card is in writable mode by pushing the small slide on the left edge of the  
 SD card adapter upwards.  
 
@@ -378,7 +378,7 @@ on the SD card and this can be plugged into the Raspberry Pi. If you have
 not decided on the case version with a display, connect an external monitor  
 and make sure that a mouse and keyboard are connected. Also connect an  
 Ethernet cable if you don't have a WiFi connection available. Then you can  
-connect the Raspberry Pi to the power supply unit, it starts automatically.  
+connect the Raspberry Pi to the power supply, it boots automatically.  
 Various packages are now installed automatically, which can also take  
 several minutes. If this is successful, a window opens in which you can set  
 basic system settings such as time zone, country, keyboard layout and your  
@@ -439,9 +439,9 @@ To start the *PhyPiDAQ* application, double-click the icon on the desktop
                     ![Figure 28](Hardware/Fotos/bedienung_1.png)  
                     
 You will be asked how you would like to open it, select "*Run*" here. Two  
-windows now open: a black terminal window, which shows current status  
+windows open now: a black terminal window, which shows current status  
 messages and log files. You can ignore this window for ease of use. It only  
-becomes important when errors are displayed. In this case, the terminal  
+gets important when errors are displayed. In this case, the terminal  
 window shows the error code and instructions which point to the problem and  
 which can usually be used to fix the problem quickly. The more important  
 window is the user interface of *PhyPiDAQ*.
@@ -468,7 +468,8 @@ in the window.
 *Fig. 31*: create a new folder
                     ![Figure 31](Hardware/Fotos/bedienung_3.png)  
                     
-Another possibility is to enter the following command in the terminal, which creates the subfolder *"class_12"* in the folder *"school"*.
+Another possibility is to enter the following command in the terminal,  
+which creates the subfolder *"class_12"* in the folder *"school"*.  
 ```bash
 mkdir /home/pi/PhyPi/school/class_12
 ```  
@@ -483,9 +484,15 @@ This will appear in the file name. If you click on *"Save Config"*, you
 save the configuration file. The file will then be called "default.daq" if  
 you wrote "default" in *Name:*. Each time you start the program with  
 "StartRun", an additional file is created with name, time and date, which  
-is saved in the directory you specified for "Work Dir", e.g. school/class_12/photoeffect.
+is saved in the directory you specified for "Work Dir",  
+e.g. school/class_12/photoeffect.
 
-**Task:** Now create a folder structure as shown in Fig. 30 with your school classes. Create a folder with the name *"Test"* in one of these classes. Then switch to the *PhyPiDAQ* user interface and select the *test* you just created in *Work Dir*. Now assign the name "standard experiment" and save the project. Then verify in the file manager that the created project is there.
+**Task:** Now create a folder structure as shown in Fig. 30 with your  
+school classes. Create a folder with the name *"Test"* in one of these  
+classes. Then switch to the *PhyPiDAQ* user interface and select the  
+*test* you just created in *Work Dir*. Now assign the name  
+"standard experiment" and save the project. Then verify in the file  
+manager that the created project is there.
 
 
 <a name="konfigurationsdatei"></a>
@@ -509,14 +516,14 @@ and many more...
 Don't let this put you off! These parameters represent ways in which an  
 experiment can be expanded or perfected. By no means all parameters are  
 required - usually around 3-5 lines are sufficient. In the *"default"* -  
-Config, which can be seen in Fig. 32, only all setting options are  
-indicated and by a "#" at the beginning commented out the respective line.
+Config, which can be seen in Fig. 32, all setting options are  
+indicated  and can be commented out by a "#" at the beginning of the  
+respective line.
 
 If you want to make changes to this configuration, you must first activate  
 the *"Edit Mode"* at the top right by clicking on it once.  
-The field in front of it shows that you can now write to the file.  
-You can now write directly in the interface and also helpful  
-Keyboard shortcuts are
+The field in front of it shows that you can now write into the text field.  
+Helpful Keyboard shortcuts are:  
 - *Str + C* for copying selected characters
 - *Str + V* for pasting the characters you just copied
 - *Str + Z* for undo
@@ -536,7 +543,7 @@ DeviceFile: config/ADS1115Config.yaml   # 16 bit ADC, I2C bus
 ```  
 You can leave all other settings here unchanged, as suitable parameters for this  
 sensor are automatically selected. Changes may have to be made to the sensor,  
-however, because it has four inputs, for example, but not all of them have to be  
+because e.g. it has four inputs but not all of them have to be  
 read out depending on the project. To do this, click on *"reload device config"*,  
 which you will find at the bottom right. A confirmation follows that *PhyPiDAQ*  
 has now accepted the selected sensor.
@@ -545,7 +552,7 @@ has now accepted the selected sensor.
 ## 4.2 Sensor configuration "Device-Config"
 
 Now click on the tab *"Device Config"* at the top. The parameters of the  
-sensor can now be seen.
+sensor can be seen now.
 
 *Fig. 33*: Configuration of the sensor  
                     ![Figure 33](Hardware/Fotos/bedienung_5.png)  
@@ -554,7 +561,7 @@ Here the syntax is the same again, that means:
 - Lines that begin with "#" are commented out and have no function
 on the program
 - To make changes you have to go to "Edit-Mode" by clicking above
-click on the "Edit-Mode" field on the right.
+on the "Edit-Mode" field on the right.
 
 You now have the choice of which channels you want to read out, what is  
 determined in "ADCChannels". If you only want to read out channel 1, this is  
@@ -606,10 +613,10 @@ Now connect the analog-digital converter to the Raspberry Pi - four wires are
 required: GND and + 5V for the power supply and SCL and SDA for the *i2C*  
 connection, via which the sensor transmits data to the Pi.
 <a name="messungstarten"></a>
-## 4.3 Start measurement
+## 4.3 Starting the measurement
 
 Then you can click the button *"StartRun"*. A window with the diagram opens and  
-you can start the measurement at the bottom left by clicking on *"Run"*.  
+you can start the measurement by clicking at the bottom left on *"Run"*.  
 Congratulations, you have taken your first measurement with *PhyPiDAQ*!
 
 *Fig. 34*: Reading out four channels with an analog-digital converter
@@ -635,8 +642,8 @@ from start to finish.
 <a name="elektrostatik"></a>
 ### 5.1 Electrostatics
 
-In the following experiment, the effect of influence will be shown. Furthermore,  
-the same setup can also be used to demonstrate a load spoon.  
+In the following experiment, the effect of electrostatic influence will be shown.  
+Furthermore, the same setup can also be used to demonstrate a load spoon.  
 
 An open, round capacitor plate with a diameter of d ≈ 5 cm is connected to the  
 electrometer. The mass of the measuring case is pulled to the earth potential.  
@@ -688,8 +695,7 @@ through the charge shift, which counteracts the accelerating force. The charge
 separation can be measured as an electrical voltage that is applied between earth  
 and the capacitor plate, i.e. precisely on the input side of the electrometer. It  
 should be noted that an electrometer with a very high internal resistance is  
-a 
-bsolutely necessary for this experiment, as otherwise the greater current flow  
+absolutely necessary for this experiment, as otherwise the greater current flow  
 between the input of the electrometer and the earth leads to a charge equalization  
 on the capacitor plate and the effect is therefore not visible. The effect is not  
 visible with a conventional multimeter. A plastic rod is used as the body, which  
@@ -700,7 +706,8 @@ change in tension with the distance between the rods can be clearly seen. The si
 of the voltage also shows that the rod is positively charged. 
 
 
-*Fig. 35*: **Influence** Time curve of the voltage on the capacitor with repeated changes in the distance to the charged rod.
+*Fig. 35*: **Influence** Time curve of the voltage on the capacitor with repeated  
+changes in the distance to the charged rod.
                     ![Figure 35](Hardware/Fotos/elektrostatik_2.png)  
              
 Now the demonstration of the load spoon follows. To do this, a metal ball is rubbed  
@@ -756,8 +763,8 @@ The measured values ​​are then exported and the stresses are assigned to the
 respective attached masses. By averaging the voltage values ​​over time during the  
 time when the respective piece of mass was attached, a voltage value can be  
 assigned to each mass. This results in ten voltage values ​​for the ten pieces of  
-mass (Fig. 5.1). It can be seen that the voltage is proportional to the attached  
-mass. The voltage that is measured without a mass is attached is subtracted from  
+mass. It can be seen that the voltage is proportional to the attached  
+mass. The voltage that is measured without an attached mass is subtracted from  
 the other voltages as an offset voltage. After determining the compensation  
 function, this load cell can be used as a scale for masses of up to 500 g.  
 
@@ -769,7 +776,7 @@ through the origin.
              
 The regression can either be carried out directly in *PhyPiDAQ* with the  
 *ChanCalib* function, or the values are exported and then transferred to Excel,  
-Python, etc. further processed.
+Python, etc. to be further processed.
 
 Config:
 
@@ -813,7 +820,7 @@ are released and a positive excess charge is created on the initially neutrally
 charged plate. If electrons hit the opposite anode, it is negatively charged. The  
 separation of charges between the anode and the cathode creates an increasing  
 electric field, which slows down further electrons that fly from the cathode to  
-the anode. In equilibrium, the braking force is so great that even electrons  
+the anode. In equilibrium, the breaking force is so great that even electrons  
 no longer arrive at the anode with maximum kinetic energy. The voltage between the  
 cathode and anode is then maximum. The maximum voltage then corresponds to the  
 counter voltage.
