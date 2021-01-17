@@ -869,16 +869,16 @@ connected to ground again for discharging.
 
 To calculate the ratio *h/e*, the energy balance is first drawn up. The  
 incident light with the wavelength *λ* has the frequency *ν=λc* and the  
-energy $E_{light}=hν$. After deducting the work function, the released  
-electrons have the kinetic energy $E_{kin}=E_{light}-E_A$. For the energy  
-of the electric field, *E_{field}=U*e* applies, where *U* is the counter  
+energy *E<sub>light</sub>=hν*. After deducting the work function, the released  
+electrons have the kinetic energy *E<sub>kin</sub>=E<sub>light</sub>-E_A*. For the energy  
+of the electric field, *E<sub>field</sub>=U*e* applies, where *U* is the counter  
 voltage and *e* is the elementary charge. In the stationary case, the energy of  
-the electric field is the same as the kinetic energy, $E_{field}=E_{kin}$, so  
+the electric field is the same as the kinetic energy, *E<sub>field</sub>=E<sub>kin</sub>*, so  
 that when inserted, *U*e=hν−E_A* results. For the voltage *U*,  
 *U=h/e*ν+eA* applies. The ratio *h/e* corresponds to the slope in the *U*-*ν*  
 diagram in the figure below. The y-axis intercept corresponds to the work  
 function *E_A*, with a negative sign indicating that this work has to be done.  
-The deviation of $(h/e)_{measured}$ from the literature value of  
+The deviation of *(h/e)<sub>measured</sub>* from the literature value of  
 *h/e=4.14*10^(−15) Js/C* is 3.5%, which indicates a very precise measurement and the set  
 goal of measuring in the percentage range fulfilled. The work function for a  
 potassium cathode is *E_A = 2.25 eV*. The y-intercept corresponds to  
